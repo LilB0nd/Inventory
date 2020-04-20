@@ -1,5 +1,5 @@
 """
-WSGI config for IventoryMangement_site project.
+WSGI config for intern_szut project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'IventoryMangement_site.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'intern_szut.settings')
 
 application = get_wsgi_application()
