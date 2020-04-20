@@ -6,11 +6,16 @@
   <component name="ProjectId" id="1ani6dslvPYynHxKJurQg5oz7xr" />
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="585" y="151" key="CommitChangelistDialog2" timestamp="1587377753224">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587377753224" />
     <state x="461" y="197" key="SettingsEditor" timestamp="1587377712041">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
