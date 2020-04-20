@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ani6dslvPYynHxKJurQg5oz7xr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -11,14 +24,71 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\anil-\Desktop\Informatik\Inventory" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="" />
+      <created>1587377584969</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587377584969</updated>
+      <workItem from="1587377586247" duration="366000" />
+    </task>
+    <task id="LOCAL-00001" summary="venv">
+      <created>1587377760325</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587377760325</updated>
+    </task>
+    <task id="LOCAL-00002" summary="venv">
+      <created>1587377880602</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587377880602</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="venv" />
+    <option name="LAST_COMMIT_MESSAGE" value="venv" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="151" key="CommitChangelistDialog2" timestamp="1587377753224">
+    <state x="585" y="151" key="CommitChangelistDialog2" timestamp="1587377853464">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587377753224" />
+    <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587377853464" />
+    <state x="184" y="117" key="MergeDialog" timestamp="1587377922037">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="184" y="117" key="MergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377922037" />
+    <state x="672" y="271" key="MultipleFileMergeDialog" timestamp="1587377925971">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="672" y="271" key="MultipleFileMergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377925971" />
     <state x="461" y="197" key="SettingsEditor" timestamp="1587377712041">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="461" y="197" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1587377712041" />
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2" timestamp="1587377891436">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587377891436" />
+    <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="656" y="379" key="com.intellij.ide.util.TipDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377988331" />
   </component>
 </project>
