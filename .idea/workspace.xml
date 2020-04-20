@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/asgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IventoryMangement_site/wsgi.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +32,8 @@
       <recent name="C:\Users\Joshua\PycharmProjects\Inventory" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joshua\PycharmProjects\Inventory" />
+      <recent name="C:\Users\Joshua\PycharmProjects\Inventory\venv" />
       <recent name="C:\Users\anil-\Desktop\Informatik\Inventory" />
     </key>
   </component>
@@ -61,7 +49,7 @@
       <updated>1587377584969</updated>
       <workItem from="1587377586247" duration="366000" />
       <workItem from="1587377986071" duration="271000" />
-      <workItem from="1587387589766" duration="673000" />
+      <workItem from="1587387589766" duration="954000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -98,7 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587387662571</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="venv">
+      <created>1587388329627</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587388329627</updated>
+    </task>
+    <task id="LOCAL-00007" summary="venv">
+      <created>1587388440579</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587388440579</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,10 +111,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="venv" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587388328973">
+    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587388439941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388328973" />
+    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388439941" />
     <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378004129" />
     <state x="184" y="117" key="MergeDialog" timestamp="1587377922037">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -127,10 +129,10 @@
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587387644871" />
     <state x="461" y="197" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1587378264986" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587388330580">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587388441516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388330580" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388441516" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378016841" />
     <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
       <screen x="0" y="30" width="1920" height="1050" />
