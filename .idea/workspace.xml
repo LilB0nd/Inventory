@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intern_szut/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/intern_szut/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iventory_managementsentials/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +57,7 @@
       <updated>1587377584969</updated>
       <workItem from="1587377586247" duration="366000" />
       <workItem from="1587377986071" duration="271000" />
-      <workItem from="1587387589766" duration="954000" />
+      <workItem from="1587387589766" duration="1226000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -100,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587388440579</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="venv">
+      <created>1587388632449</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587388632449</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,10 +126,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="venv" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587388439941">
+    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587388631814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388439941" />
+    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388631814" />
     <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378004129" />
     <state x="184" y="117" key="MergeDialog" timestamp="1587377922037">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -129,10 +144,10 @@
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587387644871" />
     <state x="461" y="197" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1587378264986" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587388441516">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587388633772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388441516" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587388633772" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378016841" />
     <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
       <screen x="0" y="30" width="1920" height="1050" />

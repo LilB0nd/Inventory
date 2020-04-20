@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'iventory_managementsentials.apps.IventoryManagementsentialsConfig',
+    'inventory_managementsentials.apps.IventoryManagementsentialsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
