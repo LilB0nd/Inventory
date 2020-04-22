@@ -2,26 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0003_auto_20200421_1301.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0004_auto_20200421_1320.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0005_auto_20200421_1324.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0006_auto_20200421_1329.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0007_auto_20200421_1332.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0008_auto_20200421_1334.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0009_auto_20200421_1340.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0010_auto_20200421_1345.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0011_auto_20200421_1346.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0012_beamer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0013_auto_20200421_1428.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0014_auto_20200421_1450.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0015_auto_20200421_1451.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0016_auto_20200421_1454.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0017_auto_20200421_1456.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0018_beamer_class.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0019_auto_20200422_1427.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory_managementsentials/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,6 +167,9 @@
       <workItem from="1587387589766" duration="3686000" />
       <workItem from="1587456093204" duration="17000" />
       <workItem from="1587463828324" duration="12517000" />
+      <workItem from="1587556761516" duration="786000" />
+      <workItem from="1587557802733" duration="210000" />
+      <workItem from="1587558077874" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -263,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587466267211</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="venv">
+      <created>1587556870068</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587556870068</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,10 +271,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587466388183" />
-    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587466266361">
+    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587556869219">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587466266361" />
+    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587556869219" />
     <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378004129" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587390294439">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -321,10 +313,10 @@
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587387644871" />
     <state x="461" y="197" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1587378264986" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587466268656">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587556871483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587466268656" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587556871483" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378016841" />
     <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
       <screen x="0" y="30" width="1920" height="1050" />
