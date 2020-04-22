@@ -1,9 +1,27 @@
-from django.db import models
+
 from django.db import models
 
 
 class Class(models.Model):
-    etage = models.SmallIntegerField()
-    class_number = models.SmallIntegerField()
-    constructionphase = models.SmallIntegerField
-    class_name = models.CharField(max_length=30)
+
+    etage_nr = [(-1, "1. Untergeschoss"),
+                (0, "Erdgeschoss"),
+                (1, "1. Etage"),
+                (2, "2. Etage")]
+    constructionsphase_nr = [(1, "Erster Bauabschnitt"), (2, "Zweiter Bauabschnitt")]
+
+    etage = models.IntegerField(choices=etage_nr)
+    classroom_ID = models.IntegerField(default=1)
+    constructionphase = models.IntegerField(choices=constructionsphase_nr)
+    chairs = models.IntegerField(default=1)
+    table = models.IntegerField(default=1)
+
+
+class Beamer(models.Model):
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    price = models.IntegerField()
+    date_of_purchase = models.DateTimeField()
+    serialnumber = models.IntegerField(default=1)
+    warranty_period = models.IntegerField(default=1)
+    status = [("working", "funktioniert"), ("broken", "kaputt")]
+    status = models.CharField(choices=status, max_length=30)
