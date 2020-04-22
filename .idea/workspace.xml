@@ -2,32 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/intern_szut/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Inventory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Inventory.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intern_szut/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/intern_szut/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0002_class.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0003_auto_20200421_1301.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0004_auto_20200421_1320.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0005_auto_20200421_1324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0006_auto_20200421_1329.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0007_auto_20200421_1332.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0008_auto_20200421_1334.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0009_auto_20200421_1340.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0010_auto_20200421_1345.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0011_auto_20200421_1346.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0012_beamer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0013_auto_20200421_1428.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0014_auto_20200421_1450.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0015_auto_20200421_1451.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0016_auto_20200421_1454.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0017_auto_20200421_1456.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0018_beamer_class.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/migrations/0019_auto_20200422_1427.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +171,7 @@
       <workItem from="1587556761516" duration="786000" />
       <workItem from="1587557802733" duration="210000" />
       <workItem from="1587569291679" duration="3681000" />
-      <workItem from="1587574002390" duration="6458000" />
+      <workItem from="1587574002390" duration="6727000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -279,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587556870068</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="venv">
+      <created>1587582675230</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587582675230</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,9 +280,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587466388183" />
-    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587556869219">
+    <state x="585" y="120" key="CommitChangelistDialog2" timestamp="1587582674256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587582674256" />
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1587556869219" />
     <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378004129" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587572081144">
@@ -325,23 +311,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1587474200531" />
-    <state x="184" y="117" key="MergeDialog" timestamp="1587377922037">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="184" y="117" key="MergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377922037" />
-    <state x="672" y="271" key="MultipleFileMergeDialog" timestamp="1587377925971">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="672" y="271" key="MultipleFileMergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377925971" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1587570613028">
+    <state x="184" y="86" key="MergeDialog" timestamp="1587582733129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587570613028" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587582733129" />
+    <state x="184" y="117" key="MergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377922037" />
+    <state x="672" y="239" key="MultipleFileMergeDialog" timestamp="1587582737296">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="239" key="MultipleFileMergeDialog/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587582737296" />
+    <state x="672" y="271" key="MultipleFileMergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1587377925971" />
+    <state x="581" y="159" key="SettingsEditor" timestamp="1587582873660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="581" y="159" key="SettingsEditor/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587582873660" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587387644871" />
     <state x="461" y="197" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1587378264986" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587556871483">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1587582681929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587582681929" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587556871483" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378016841" />
     <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
