@@ -113,8 +113,8 @@ class Canvas(models.Model):
         return str(self.CanvasID)
 
     class Meta:
-        verbose_name = "CanvasBoard"
-        verbose_name_plural = "CanvasBoards"
+        verbose_name = "Canvas"
+        verbose_name_plural = "Canvas"
 
 
 class SpeakerSet(models.Model):
