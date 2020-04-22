@@ -16,6 +16,13 @@ class Class(models.Model):
     chairs = models.IntegerField(default=1)
     table = models.IntegerField(default=1)
 
+    def __str__(self):
+        return "Klassenraumzimmer: " + str(self.classroom_ID)
+
+    class Meta:
+        verbose_name = "Klasseraum"
+        verbose_name_plural = "Klassenräume"
+
 
 class Beamer(models.Model):
     Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
@@ -25,3 +32,10 @@ class Beamer(models.Model):
     warranty_period = models.IntegerField(default=1)
     status = [("working", "funktioniert"), ("broken", "kaputt")]
     status = models.CharField(choices=status, max_length=30)
+
+    def __str__(self):
+        return "Beamerseriennummer: " + str(self.serialnumber)
+
+    class Meta:
+        verbose_name = "Beamer"
+        verbose_name_plural = "Beamer"
