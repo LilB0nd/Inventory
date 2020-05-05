@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Class, Beamer, Computer, Screen, Canvas, SmartBoard, SpeakerSet
+from .models import Room, Beamer, Computer, Screen, Canvas, SmartBoard, SpeakerSet, Location, Brand
 
-admin.site.register(Class)
+admin.site.register(Location)
+admin.site.register(Room)
+admin.site.register(Brand)
 admin.site.register(Beamer)
 admin.site.register(Computer)
 admin.site.register(Screen)

@@ -1,57 +1,34 @@
 from django.db import models
+# stift für smartboard
+# bildschirme extra
 
 
-class Location(models.Model):
-    BASEMENT = 'BA'
-    GROUNDFLOOR = 'GF'
-    FIRSTFLOOR = 'FF'
-    SECONDFLOOR = 'SF'
-    FLOOR_IN_BUILDING_FLOOR_CHOICES = ((BASEMENT, 'Keller'), (GROUNDFLOOR, 'Erdgeschoss'), (FIRSTFLOOR, '1. Etage'),
-                                       (SECONDFLOOR, '2. Etage'),
-                                       )
-    floor = models.CharField(
-        max_length=2,
-        choices=FLOOR_IN_BUILDING_FLOOR_CHOICES,
-        default=FIRSTFLOOR
-    )
-    BUILDING1 = 'BA1',
-    BUILDING2 = 'BA2',
-    GYMNASIUM = 'GYM',
-    BUILDING_IN_BUILDING_CHOICES = (
-        ('BUILDING1', 'Erster Bauabschnitt'), ('BUILDING2', 'Zweiter Bauabschnitt'), ('GYMNASIUM', 'Sporthalle'),
-    )
-    building = models.CharField(max_length=9, choices=BUILDING_IN_BUILDING_CHOICES, default=BUILDING1)
-    description = models.CharField(max_length=256)
+class Class(models.Model):
+    classroom_number = models.IntegerField(primary_key=True)
+    etage_nr = [(-1, "1. basement"),
+                (0, "ground level"),
+                (1, "1. floor"),
+                (2, "2. floor")]
+    constructionsphase_nr = [(1, "First Constructionphase"), (2, "Second Constructionphase")]
+    etage = models.IntegerField(choices=etage_nr)
+
+    constructionphase = models.IntegerField(choices=constructionsphase_nr)
 
     def __str__(self):
-        return self.description
-
-
-class Room(models.Model):
-    description = models.CharField(max_length=256)
-    location = models.ForeignKey('Location', on_delete=models.CASCADE, default=0)
-
-    def __str__(self):
-        return self.description
+        return str(self.classroom_number)
 
     class Meta:
-        verbose_name = "room"
-        verbose_name_plural = "rooms"
+        verbose_name = "classroom"
+        verbose_name_plural = "classrooms"
 
 
-class Brand(models.Model):
-    description = models.CharField(max_length=256, null=True)
-
-    def __str__(self):
-        return self.description
 
 
 class Beamer(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256)
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    BeamerID = models.IntegerField(default=0, primary_key=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
@@ -59,7 +36,7 @@ class Beamer(models.Model):
     status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.BeamerID)
 
     class Meta:
         verbose_name = "Beamer"
@@ -67,10 +44,10 @@ class Beamer(models.Model):
 
 
 class Computer(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    ComputerID = models.IntegerField(default=0, primary_key=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
@@ -78,7 +55,7 @@ class Computer(models.Model):
     status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.ComputerID)
 
     class Meta:
         verbose_name = "Computer"
@@ -86,11 +63,10 @@ class Computer(models.Model):
 
 
 class Screen(models.Model):
-    Computer = models.ForeignKey(Computer, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
+    Computer = models.ForeignKey(Computer, on_delete=models.CASCADE, default=0)
+    ScreenID = models.IntegerField(default=0, primary_key=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
@@ -98,7 +74,7 @@ class Screen(models.Model):
     status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.ScreenID)
 
     class Meta:
         verbose_name = "Screen"
@@ -106,10 +82,10 @@ class Screen(models.Model):
 
 
 class SmartBoard(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    SmartBoardID = models.IntegerField(default=0, primary_key=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
@@ -117,7 +93,7 @@ class SmartBoard(models.Model):
     status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.SmartBoardID)
 
     class Meta:
         verbose_name = "SmartBoard"
@@ -125,10 +101,10 @@ class SmartBoard(models.Model):
 
 
 class Canvas(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    CanvasID = models.IntegerField(default=0, primary_key=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(default=2, blank=True, null=True)
@@ -136,7 +112,7 @@ class Canvas(models.Model):
     status = models.CharField(choices=status, max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.CanvasID)
 
     class Meta:
         verbose_name = "Canvas"
@@ -144,10 +120,10 @@ class Canvas(models.Model):
 
 
 class SpeakerSet(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
+    Class = models.ForeignKey(Class, on_delete=models.CASCADE, default=0)
+    SpeakerSetID = models.IntegerField(default=0, primary_key=True)
     quantity = models.IntegerField(blank=True, null=True)
+    brand = models.CharField(max_length=256, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField()
     warranty_period = models.IntegerField(blank=True, null=True)
@@ -155,10 +131,8 @@ class SpeakerSet(models.Model):
     status = models.CharField(choices=status, max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return self.description
+        return str(self.SpeakerSetID)
 
     class Meta:
         verbose_name = "SpeakerSet"
         verbose_name_plural = "SpeakerSets"
-
-
