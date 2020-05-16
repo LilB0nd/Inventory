@@ -21,15 +21,14 @@ class Location(models.Model):
         ('BUILDING1', 'Erster Bauabschnitt'), ('BUILDING2', 'Zweiter Bauabschnitt'), ('GYMNASIUM', 'Sporthalle'),
     )
     building = models.CharField(max_length=9, choices=BUILDING_IN_BUILDING_CHOICES, default=BUILDING1)
-    description = models.CharField(max_length=256)
 
     def __str__(self):
-        return self.description
+        return "{} / {}".format(self.get_floor_display(), self.get_building_display())
 
 
 class Room(models.Model):
-    description = models.CharField(max_length=256)
-    location = models.ForeignKey('Location', on_delete=models.CASCADE, default=0)
+    description = models.CharField(max_length=256, primary_key=True)
+    location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, default=0)
 
     def __str__(self):
         return self.description
@@ -40,23 +39,28 @@ class Room(models.Model):
 
 
 class Brand(models.Model):
-    description = models.CharField(max_length=256, null=True)
+    description = models.CharField(max_length=256, null=True, unique=True)
 
     def __str__(self):
         return self.description
 
 
-class Beamer(models.Model):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256)
+class Device(models.Model):
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-
+    description = models.CharField(max_length=256, primary_key=True)
+    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
     status = [("working", "working"), ("broken", "broken")]
     status = models.CharField(choices=status, max_length=7, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
+class Beamer(Device):
+    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.description
@@ -66,16 +70,8 @@ class Beamer(models.Model):
         verbose_name_plural = "Beamers"
 
 
-class Computer(models.Model):
+class Computer(Device):
     Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
-    serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField(blank=True, null=True)
-    warranty_period = models.IntegerField(blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
         return self.description
@@ -85,17 +81,8 @@ class Computer(models.Model):
         verbose_name_plural = "Computers"
 
 
-class Screen(models.Model):
+class Screen(Device):
     Computer = models.ForeignKey(Computer, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
-    serialnumber = models.CharField(max_length=256, blank=True, null=True)
-
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField(blank=True, null=True)
-    warranty_period = models.IntegerField(blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
         return self.description
@@ -105,16 +92,8 @@ class Screen(models.Model):
         verbose_name_plural = "Screens"
 
 
-class SmartBoard(models.Model):
+class SmartBoard(Device):
     Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
-    serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField(blank=True, null=True)
-    warranty_period = models.IntegerField(blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=7, blank=True, null=True)
 
     def __str__(self):
         return self.description
@@ -124,16 +103,8 @@ class SmartBoard(models.Model):
         verbose_name_plural = "SmartsBoards"
 
 
-class Canvas(models.Model):
+class Canvas(Device):
     Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
-    serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField(blank=True, null=True)
-    warranty_period = models.IntegerField(default=2, blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=30, blank=True, null=True)
 
     def __str__(self):
         return self.description
@@ -143,16 +114,9 @@ class Canvas(models.Model):
         verbose_name_plural = "Canvas"
 
 
-class SpeakerSet(models.Model):
+class SpeakerSet(Device):
     Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, blank=True, null=True)
-    description = models.CharField(max_length=256, null=True)
     quantity = models.IntegerField(blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField()
-    warranty_period = models.IntegerField(blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=30, blank=True, null=True)
 
     def __str__(self):
         return self.description

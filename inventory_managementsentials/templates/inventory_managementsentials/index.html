@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Übersicht Räume</title>
+</head>
+<body>
+{% if room_list %}
+    <ul>
+        {% for room in room_list %}
+            <li>
+                <h2>{{ room.description }}</h2>
+                <p><strong>Lage</strong> :
+                    {{ room.location|default_if_none:"-" }}
+                    <br><strong>Beamer</strong>: {{ room.device.beamer|default_if_none:"-" }} <br>
+                    <strong>Computer</strong>: {{ room.computer|default_if_none:"-" }} <br>
+                    <strong>Screen</strong>: {{ room.screen|default_if_none:"-" }} <br>
+                    <strong>SmartBoard</strong>: {{ room.smartboard|default_if_none:"-" }} <br>
+                    <strong>Leinwand</strong>: {{ room.canvas|default_if_none:"-" }} <br>
+                    <strong>Speaker</strong>: {{ room.speakerset|default_if_none:"-" }}
+                </p>
+                </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No rooms are available.</p>
+{% endif %}
+</body>
+</html>
