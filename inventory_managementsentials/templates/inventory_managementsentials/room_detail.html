@@ -1,0 +1,31 @@
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}Raum Details{% endblock %}
+{% block content %}
+    <table class="table table-hover" style="margin-top: 20px ">
+        <thead style="background-color: #007bff; color: #ffffff">
+        <tr>
+            <th scope="col">Raum</th>
+            <th scope="col">{{ room.description }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Lage</th>
+            <td>{{ room.location }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Beamer</th>
+            <td>{{ room.beamer }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Lautsprecher</th>
+            <td>{{ room.speaker }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="{% url 'inventory_managementsentials:index' %}">Zur Übersichtder Räume</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
