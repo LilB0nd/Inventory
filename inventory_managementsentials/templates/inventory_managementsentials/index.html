@@ -1,44 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Übersicht Räume</title>
-</head>
-<body>
-{% if room_list %}
-    <ul>
-        {% for room in room_list %}
-            <li>
-                <h2>{{ room.description }}</h2>
-
-                <p><strong>Lage: </strong>
-                    {{ room.location|default_if_none:"keine Angabe" }}
-                </p>
-
-                <p><strong>Anzahl an Stühle: </strong>
-                    {{ room.chair|default_if_none:"keine Angabe" }}
-                </p>
-
-                <p><strong>Anzahl an Tische: </strong>
-                    {{ room.table|default_if_none:'keine Angabe' }}
-                </p>
-
-                <p><strong>Tafel: </strong>
-                    {% if room.blackboard %}
-                        Vorhanden
-                    {% elif room.blackboard == False %}
-                        Nicht Vorhanden
-                    {%  else %}
-                        Keine Angabe
-                    {% endif %}
-                </p>
-                </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No rooms are available.</p>
-{% endif %}
-
-</body>
-</html>
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}Räume Übersicht{% endblock %}
+{% block content %}
+    <div class="container">
+        <header>
+            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+                <div class="inner">
+                    <h1>Räume Übersicht </h1>
+                </div>
+            </div>
+        </header>
+        <div class="whatever_else_you_need">
+            {% if room_list %}
+                {% for room in room_list %}
+                    <div class="list-group">
+                        <a href="{% url 'inventory_managementsentials:room' room.description %}" class="list-group-itemlist-group-item-action active">Raum {{ room.description }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Lage:</strong>{{ room.location|default_if_none:"-" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Beamer: </strong>{{  room.beamer|default_if_none:"-" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"   style="margin-bottom: 1em;"><strong>Speaker: </strong>{{ room.speaker|default_if_none:"-" }}</a>
+                    </div>
+                {% endfor %}
+                </div>
+            {% else %}
+                <p>No rooms are available.</p>
+            {% endif %}
+    </div>
+{% endblock %}
