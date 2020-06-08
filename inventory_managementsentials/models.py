@@ -28,7 +28,13 @@ class Location(models.Model):
 
 class Room(models.Model):
     description = models.CharField(max_length=256, primary_key=True)
-    location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, default=0)
+    location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, blank=True)
+    beamer = models.OneToOneField('Beamer', null=True, on_delete=models.SET_NULL, blank=True)
+    smartboard = models.OneToOneField('SmartBoard', null=True, on_delete=models.SET_NULL, blank=True)
+    canvas = models.OneToOneField('Canvas', null=True, on_delete=models.SET_NULL, blank=True)
+    speakerset = models.OneToOneField('SpeakerSet', null=True, on_delete=models.SET_NULL, blank=True)
+    chair = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
+    table = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
 
     def __str__(self):
         return self.description
@@ -47,7 +53,7 @@ class Brand(models.Model):
 
 class Device(models.Model):
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    description = models.CharField(max_length=256, primary_key=True)
+    description = models.CharField(max_length=256, primary_key=True, unique=True)
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
@@ -60,9 +66,8 @@ class Device(models.Model):
 
 
 class Beamer(Device):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-
     def __str__(self):
+        self.description = 'Beamer ' + self.description
         return self.description
 
     class Meta:
@@ -71,9 +76,10 @@ class Beamer(Device):
 
 
 class Computer(Device):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
+    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        self.description = 'Computer ' + self.description
         return self.description
 
     class Meta:
@@ -82,9 +88,10 @@ class Computer(Device):
 
 
 class Screen(Device):
-    Computer = models.ForeignKey(Computer, null=True, on_delete=models.SET_NULL)
+    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        self.description = 'Screen ' + self.description
         return self.description
 
     class Meta:
@@ -93,9 +100,8 @@ class Screen(Device):
 
 
 class SmartBoard(Device):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-
     def __str__(self):
+        self.description = 'SmartBoard ' + self.description
         return self.description
 
     class Meta:
@@ -104,9 +110,8 @@ class SmartBoard(Device):
 
 
 class Canvas(Device):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
-
     def __str__(self):
+        self.description = 'Leinwand ' + self.description
         return self.description
 
     class Meta:
@@ -115,10 +120,10 @@ class Canvas(Device):
 
 
 class SpeakerSet(Device):
-    Class = models.ForeignKey(Room, null=True, on_delete=models.SET_NULL)
     quantity = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
+        self.description = 'LautsprecherSet ' + self.description
         return self.description
 
     class Meta:
