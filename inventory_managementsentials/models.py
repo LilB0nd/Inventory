@@ -27,12 +27,9 @@ class Location(models.Model):
 
 
 class Room(models.Model):
-    description = models.CharField(max_length=256, primary_key=True)
+    description = models.CharField(max_length=256, unique=True)
     location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, blank=True)
-    beamer = models.OneToOneField('Beamer', null=True, on_delete=models.SET_NULL, blank=True)
-    smartboard = models.OneToOneField('SmartBoard', null=True, on_delete=models.SET_NULL, blank=True)
-    canvas = models.OneToOneField('Canvas', null=True, on_delete=models.SET_NULL, blank=True)
-    speakerset = models.OneToOneField('SpeakerSet', null=True, on_delete=models.SET_NULL, blank=True)
+    blackboard = models.BooleanField(blank=True, null=True)
     chair = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
     table = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
 
@@ -52,20 +49,29 @@ class Brand(models.Model):
 
 
 class Device(models.Model):
+    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL, blank=True)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    description = models.CharField(max_length=256, primary_key=True, unique=True)
+    description = models.CharField(max_length=256, unique=True)
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
     warranty_period = models.IntegerField(blank=True, null=True)
-    status = [("working", "working"), ("broken", "broken")]
-    status = models.CharField(choices=status, max_length=7, blank=True, null=True)
+    working = 'working'
+    broken = 'broken'
+    status_choice = [(working, "working"), (broken, "broken")]
+    status = models.CharField(choices=status_choice, max_length=7, blank=True, null=True)
 
     class Meta:
         abstract = True
 
 
 class Beamer(Device):
+    HDMI = models.BooleanField(blank=True, null=True)
+    VGA = models.BooleanField(blank=True, null=True)
+    DVI = models.BooleanField(blank=True, null=True)
+    DB = models.BooleanField(blank=True, null=True)
+    USBTypeC = models.BooleanField(blank=True, null=True)
+
     def __str__(self):
         self.description = 'Beamer ' + self.description
         return self.description
@@ -76,8 +82,6 @@ class Beamer(Device):
 
 
 class Computer(Device):
-    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL)
-
     def __str__(self):
         self.description = 'Computer ' + self.description
         return self.description
@@ -88,7 +92,14 @@ class Computer(Device):
 
 
 class Screen(Device):
-    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL)
+    format43 = '4:3'
+    format169 = '16:9'
+    format1610 = '16:10'
+    format219 = '21:9'
+
+    screen_format_choice = [(format43, '4:3'), (format169, '16:9'), (format1610, '16:10'),
+                            (format219, '21:9')]
+    screen_format = models.CharField(choices=screen_format_choice, max_length=5, blank=True, null=True)
 
     def __str__(self):
         self.description = 'Screen ' + self.description
@@ -100,6 +111,7 @@ class Screen(Device):
 
 
 class SmartBoard(Device):
+    # TODO Bedienung
     def __str__(self):
         self.description = 'SmartBoard ' + self.description
         return self.description
@@ -110,8 +122,18 @@ class SmartBoard(Device):
 
 
 class Canvas(Device):
+    format11 = '1:1'
+    format43 = '4:3'
+    format169 = '16:9'
+    format1610 = '16:10'
+    format219 = '21:9'
+    canvas_format_choice = [(format11, '1:1'), (format43, '4:3'), (format169, '16:9'), (format1610, '16:10'),
+                            (format219, '21:9')]
+    canvas_format = models.CharField(choices=canvas_format_choice, max_length=5, blank=True, null=True)
+
     def __str__(self):
         self.description = 'Leinwand ' + self.description
+
         return self.description
 
     class Meta:
