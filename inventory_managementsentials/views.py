@@ -13,9 +13,11 @@ class IndexView(generic.ListView):
         return Room.objects.order_by("description")
 
 
-
 class RoomDetailView(generic.DetailView):
 
     model = Room
     template_name = 'inventory_managementsentials/room_detail.html'
     context_object_name = 'room'
+
+    def get_queryset(self):
+        return Room.objects.order_by('description')

@@ -35,6 +35,7 @@ class Room(models.Model):
     speakerset = models.OneToOneField('SpeakerSet', null=True, on_delete=models.SET_NULL, blank=True)
     chair = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
     table = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
+    blackboard = models.BooleanField(null=True, blank=True)
 
     def __str__(self):
         return self.description
