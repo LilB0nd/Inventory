@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/migrations/0003_room_blackboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Inventory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Inventory.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2020_14_24__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_06_2020_14_24__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/management/commands/import_rooms.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/management/commands/import_rooms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/templates/inventory_managementsentials/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/templates/inventory_managementsentials/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory_managementsentials/templates/inventory_managementsentials/room_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/templates/inventory_managementsentials/room_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inventory_managementsentials/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -239,7 +227,7 @@
       <workItem from="1589651742033" duration="3660000" />
       <workItem from="1591540267755" duration="5373000" />
       <workItem from="1591630361740" duration="2919000" />
-      <workItem from="1591705102339" duration="3963000" />
+      <workItem from="1591705102339" duration="4239000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -381,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591633595237</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- views machen">
+      <created>1591709202389</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1591709202389</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
