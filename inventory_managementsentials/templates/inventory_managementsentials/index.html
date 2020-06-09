@@ -14,9 +14,19 @@
                 {% for room in room_list %}
                     <div class="list-group">
                         <a href="{% url 'inventory_managementsentials:room' room.description %}" class="list-group-itemlist-group-item-action active">Raum {{ room.description }}</a>
-                        <a href="#" class="list-group-item list-group-item-action"><strong>Lage:</strong>{{ room.location|default_if_none:"-" }}</a>
-                        <a href="#" class="list-group-item list-group-item-action"><strong>Beamer: </strong>{{  room.beamer|default_if_none:"-" }}</a>
-                        <a href="#" class="list-group-item list-group-item-action"   style="margin-bottom: 1em;"><strong>Speaker: </strong>{{ room.speaker|default_if_none:"-" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Lage: </strong>{{ room.location|default_if_none:"keine Angabe" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Tische: </strong>{{  room.table|default_if_none:"keine Angabe" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Stühle: </strong>{{ room.chair|default_if_none:"keine Angabe" }}</a>
+                        <a href="#" class="list-group-item list-group-item-action"><strong>Tafel: </strong>
+                        {% if room.blackboard %}
+                        Vorhanden
+                    {% elif room.blackboard == False %}
+                        Nicht Vorhanden
+                    {%  else %}
+                        Keine Angabe
+                    {% endif %}
+                        </a>
+
                     </div>
                 {% endfor %}
                 </div>

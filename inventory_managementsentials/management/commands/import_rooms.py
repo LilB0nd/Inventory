@@ -12,7 +12,7 @@ class Command(BaseCommand):
                 room_number = line.split(',')[1].strip()
                 try:
                     existing_room = Room.objects.get(description=room_number)
-                    self.stdout.write("{} Does already exist".format(room_number))
+                    self.stdout.write("Room {} already exist".format(room_number))
                 except Room.DoesNotExist:
                     room = Room(description=room_number)
                     room.save()

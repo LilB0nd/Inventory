@@ -27,7 +27,7 @@ class Location(models.Model):
 
 
 class Room(models.Model):
-    description = models.CharField(max_length=256, unique=True)
+    description = models.CharField(max_length=256, unique=True, primary_key=True)
     location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, blank=True)
     blackboard = models.BooleanField(blank=True, null=True)
     chair = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)

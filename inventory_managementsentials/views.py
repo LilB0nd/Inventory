@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import generic
 
-from .models import Room
+from .models import Room, Beamer
 
 
 class IndexView(generic.ListView):
@@ -13,9 +13,10 @@ class IndexView(generic.ListView):
         return Room.objects.order_by("description")
 
 
-
 class RoomDetailView(generic.DetailView):
 
     model = Room
     template_name = 'inventory_managementsentials/room_detail.html'
     context_object_name = 'room'
+
+
