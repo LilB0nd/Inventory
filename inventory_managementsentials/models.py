@@ -111,7 +111,6 @@ class Screen(Device):
 
 
 class SmartBoard(Device):
-    # TODO Bedienung
     def __str__(self):
         self.description = 'SmartBoard ' + self.description
         return self.description
