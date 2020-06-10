@@ -9,5 +9,3 @@ urlpatterns = [
     url(r'room/(?P<pk>.+)/$', views.RoomDetailView.as_view(), name='room'),
 
     ]
-
-#url(r'^room/(?P<pk>.+)$', views.RoomDetailView.as_view(), name='room')

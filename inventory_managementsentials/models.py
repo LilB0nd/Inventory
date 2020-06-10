@@ -49,9 +49,9 @@ class Brand(models.Model):
 
 
 class Device(models.Model):
-    room = models.ForeignKey('Room', null=True, on_delete=models.SET_NULL, blank=True)
+    room = models.ForeignKey('Room', null=True, blank=True, on_delete=models.SET_NULL)
     serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    description = models.CharField(max_length=256, unique=True)
+    description = models.CharField(max_length=256, unique=True, primary_key=True)
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     date_of_purchase = models.DateTimeField(blank=True, null=True)
@@ -73,8 +73,7 @@ class Beamer(Device):
     USBTypeC = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
-        self.description = 'Beamer ' + self.description
-        return self.description
+        return 'Beamer ' + self.description
 
     class Meta:
         verbose_name = "Beamer"
@@ -83,8 +82,7 @@ class Beamer(Device):
 
 class Computer(Device):
     def __str__(self):
-        self.description = 'Computer ' + self.description
-        return self.description
+        return 'Computer ' + self.description
 
     class Meta:
         verbose_name = "Computer"
@@ -102,8 +100,8 @@ class Screen(Device):
     screen_format = models.CharField(choices=screen_format_choice, max_length=5, blank=True, null=True)
 
     def __str__(self):
-        self.description = 'Screen ' + self.description
-        return self.description
+
+        return 'Screen ' + self.description
 
     class Meta:
         verbose_name = "Screen"
@@ -112,8 +110,7 @@ class Screen(Device):
 
 class SmartBoard(Device):
     def __str__(self):
-        self.description = 'SmartBoard ' + self.description
-        return self.description
+        return 'SmartBoard ' + self.description
 
     class Meta:
         verbose_name = "SmartBoard"
@@ -131,9 +128,7 @@ class Canvas(Device):
     canvas_format = models.CharField(choices=canvas_format_choice, max_length=5, blank=True, null=True)
 
     def __str__(self):
-        self.description = 'Leinwand ' + self.description
-
-        return self.description
+        return 'Leinwand ' + self.description
 
     class Meta:
         verbose_name = "Canvas"
@@ -144,8 +139,7 @@ class SpeakerSet(Device):
     quantity = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        self.description = 'LautsprecherSet ' + self.description
-        return self.description
+        return 'Audioanlage ' + self.description
 
     class Meta:
         verbose_name = "SpeakerSet"

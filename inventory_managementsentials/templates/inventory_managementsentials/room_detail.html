@@ -5,21 +5,272 @@
         <thead style="background-color: #007bff; color: #ffffff">
         <tr>
             <th scope="col">Raum</th>
-            <th scope="col">{{ room.description }}</th>
+            <th scope="col">{{ object.description }}</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <th scope="row">Lage</th>
-            <td>{{ room.location }}</td>
+            <th scope="row">Lage:</th>
+            <td>{{ object.location }}</td>
         </tr>
         <tr>
-            <th scope="row">Beamer</th>
-            <td>{{ room.beamer }}</td>
+            <th scope="row>">Tische:</th>
+            <td>{{ object.table }}</td>
         </tr>
         <tr>
-            <th scope="row">Lautsprecher:</th>
-            <td>{{ room.speaker }}</td>
+            <th scope="row>">Stühle:</th>
+            <td>{{ object.chair }}</td>
+        </tr>
+        <tr>
+        <th scope="row">Beamer:</th>
+            <td>
+                {% if object.beamer_set.all %}
+                    {% for beamer in object.beamer_set.all %}
+                        <br>
+                        Bezeichnung: {{ beamer.description }}<br>
+                        Anschlüsse:
+                            {% if beamer.HDMI %}HDMI,{% endif %}
+                            {% if beamer.VGA %}VGA,{% endif %}
+                            {% if beamer.DVI %}DVI,{% endif %}
+                            {% if beamer.DB %}DB,{% endif %}
+                            {% if beamer.USBTypeC %}USBTypeC,{% endif %}
+                        <br>
+                        Status:
+                        {% if beamer.status == 'working' %}
+                            Funktionsfähig
+                        {% elif beamer.status == 'broken' %}
+                            Defekt
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Garantiedauer:
+                        {% if beamer.warranty_period %}
+                            {{ beamer.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ beamer.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if beamer.price %}
+                            {{ beamer.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                        Marke: {{ beamer.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ beamer.serialnumber|default_if_none:'-'}}<br>
+                        <br>
+
+                    {% endfor %}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Computers:</th>
+            <td>
+                {% if object.computer_set.all %}
+                    {% for computer in object.computer_set.all %}
+                        <br>
+                        Bezeichnung: {{ computer.description }}<br>
+                        Status:
+                            {% if computer.status == 'working' %}
+                                Funktionsfähig
+                            {% elif computer.status == 'broken' %}
+                                Defekt
+                            {% else %}
+                                -
+                            {% endif %}
+                        <br>
+                        Garantiedauer:
+                            {% if computer.warranty_period %}
+                                {{ computer.warranty_period }} Jahre
+                            {% else %}
+                                -
+                            {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ computer.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if computer.price %}
+                            {{ computer.price}}€
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Marke: {{ computer.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ computer.serialnumber|default_if_none:'-'}}<br>
+                        <br>
+                    {% endfor %}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Bildschirme:</th>
+            <td>
+                {% if object.screen_set.all%}
+                    {% for screen in object.screen_set.all %}
+                        <br>
+                        Bezeichnung: {{ screen.description}}<br>
+                        Format: {{ screen.screen_format|default_if_none:'-' }}<br>
+                        Status:
+                            {% if screen.status == 'working' %}
+                                Funktionsfähig
+                            {% elif screen.status == 'broken' %}
+                                Defekt
+                            {% else %}
+                                -
+                            {% endif %}
+                        <br>
+                        Garantiedauer:
+                        {% if screen.warranty_period %}
+                            {{ screen.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ screen.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if screen.price %}
+                            {{ screen.price}}€
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Marke: {{ screen.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ screen.serialnumber|default_if_none:'-'}}<br>
+                        <br>
+                {% endfor %}
+            {% else %}
+            -
+            {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">SmartBoard:</th>
+            <td>
+                {% if object.smartboard_set.all %}
+                    {% for smartboard in object.smartboard_set.all %}
+                        <br>
+                        Bezeichnung: {{ smartboard.description }}<br>
+                        Status:
+                            {% if smartboard.status == 'working' %}
+                                Funktionsfähig
+                            {% elif smartboard.status == 'broken' %}
+                                Defekt
+                            {% else %}
+                                -
+                            {% endif %}
+                        <br>
+                        Garantiedauer:
+                        {% if smartboard.warranty_period %}
+                            {{ smartboard.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ smartboard.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if smartboard.price %}
+                            {{ smartboard.price}}€
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Marke: {{ smartboard.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ smartboard.serialnumber|default_if_none:'-'}}<br>
+                        <br>
+                    {% endfor %}
+                {% else%}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">Leinwand:</th>
+            <td>
+                {% if object.canvas_set.all %}
+                    {% for canvas in object.canvas_set.all %}
+                        <br>
+                        Bezeichnung: {{ canvas.description}}<br>
+                        Format: {{ canvas.canvas_format|default_if_none:'-' }}<br>
+                        Status:
+                        {% if canvas.status %}
+                            Funktionsfähig<br>
+                        {% elif canvas.status == False %}
+                            Kaputt<br>
+                        {% else %}
+                            -
+                        {% endif %}
+                        Garantiedauer:
+                        {% if canvas.warranty_period %}
+                            {{ canvas.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ canvas.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if canvas.price %}
+                             {{ canvas.price }}€
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Marke: {{ canvas.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ canvas.serialnumber|default_if_none:'-'}}<br>
+                    {% endfor %}
+                {% else%}
+                    -
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Audioanlage:</th>
+            <td>
+                {% if object.speakerset_set.all %}
+                    {% for speakerset in object.speakerset_set.all %}
+                        Bezeichnung: {{ speakerset.description }}<br>
+                        Anzahl an Lautsprecher: {{ speakerset.quantity|default_if_none:'-' }}<br>
+                        Status:
+                            {% if speakerset.status == 'working' %}
+                                Funktionsfähig
+                            {% elif speakerset.status == 'broken' %}
+                                Defekt
+                            {% else %}
+                                -
+                            {% endif %}
+                        <br>
+                        <br>
+                        Garantiedauer:
+                        {% if speakerset.warranty_period %}
+                            {{ speakerset.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Einkaufsdatum: {{ speakerset.date_of_purchase|default_if_none:'-' }}<br>
+                        Preis:
+                        {% if speakerset.price %}
+                             {{ speakerset.price}}€
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                        Marke: {{ speakerset.brand|default_if_none:'-'}}<br>
+                        Seriennummer: {{ speakerset.serialnumber|default_if_none:'-'}}<br>
+                    {% endfor %}
+                {% else %}
+                    -
+                {% endif %}
         </tr>
         <tr>
             <td colspan="2">
