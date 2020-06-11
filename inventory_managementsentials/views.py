@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardForm, \
     CanvasForm, SpeakerSetForm
 from .models import Room, Beamer, Computer, Screen, SmartBoard, Canvas, SpeakerSet
-
+from .filters import RoomFilter
 
 class RoomIndexView(generic.ListView):
     template_name = 'inventory_managementsentials/all_rooms.html'
@@ -13,6 +13,10 @@ class RoomIndexView(generic.ListView):
     def get_queryset(self):
         return Room.objects.order_by('description')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = RoomFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 class RoomDetailView(generic.DetailView):
     model = Room
