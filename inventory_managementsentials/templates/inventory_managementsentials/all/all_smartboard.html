@@ -1,0 +1,58 @@
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}SmartBoard Übersicht{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <header>
+            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+                <div class="inner">
+                    <h1>SmartBoard Übersicht </h1>
+                </div>
+            </div>
+        </header>
+        <form method="GET" action="/smartboard/all">
+                <input type="text" name="smartboard_description">
+                <button type="submit">Suchen</button>
+            </form>
+        <div class="whatever_else_you_need">
+            {% if smartboard_list %}
+                {% for smartboardin in smartboard_list %}
+                    <div class="list-group">
+                        <a class="list-group-itemlist-group-item-action active">smartboard{{ smartboard.description }}</a>
+                            <strong>Status:</strong>
+                        {% if smartboard.status == 'working' %}
+                            Funktionsfähig
+                        {% elif smartboard.status == 'broken' %}
+                            <strong>Defekt</strong>
+                        {% else %}
+                            -
+                        {% endif %}<br>
+
+                            <strong>Garantiedauer:</strong>
+                        {% if smartboard.warranty_period %}
+                            {{ smartboard.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                            <strong>Einkaufsdatum:</strong> {{ smartboard.date_of_purchase|default_if_none:'-' }}<br>
+                            <strong>Preis:</strong>
+                        {% if smartboard.price %}
+                            {{ smartboard.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                            <strong>Marke:</strong> {{ smartboard.brand|default_if_none:'-'}}<br>
+                            <strong>Seriennummer: </strong> {{ smartboard.serialnumber|default_if_none:'-'}}<br>
+
+                        </a>
+                    </div>
+                {% endfor %}
+
+        </div>
+            {% else %}
+                <p>Keine SmartBoard vorhanden.</p>
+            {% endif %}
+    </div>
+{% endblock %}

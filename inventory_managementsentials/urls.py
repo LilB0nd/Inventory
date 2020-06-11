@@ -8,7 +8,13 @@ from .views import room_create_view, beamer_create_view, computer_create_view, \
 app_name = "inventory_managementsentials"
 
 urlpatterns = [
-    url(r'^room/all/$', views.RoomIndexView.as_view(), name='RoomIndexView'),
+    url(r'^room/all/$', views.RoomView.as_view(), name='RoomView'),
+    url(r'^beamer/all$', views.BeamerView.as_view(), name='BeamerView'),
+    url(r'^computer/all$', views.ComputerView.as_view(), name='ComputerView'),
+    url(r'^screen/all$', views.ScreenView.as_view(), name='ScreenView'),
+    url(r'^smartboard/all$', views.SmartBoardView.as_view(), name='SmartBoardView'),
+    url(r'^canvas/all$', views.CanvasView.as_view(), name='CanvasView'),
+    url(r'^speakerset/all$', views.SpeakerSetView.as_view(), name='SpeakerSetView'),
     url(r'^room/(?P<pk>.+)/$', views.RoomDetailView.as_view(), name='room'),
     url(r'^add/room/$', room_create_view),
     url(r'^add/beamer/$', beamer_create_view),

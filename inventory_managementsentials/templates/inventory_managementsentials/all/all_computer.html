@@ -1,0 +1,59 @@
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}Computer Übersicht{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <header>
+            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+                <div class="inner">
+                    <h1>Computer Übersicht </h1>
+                </div>
+            </div>
+        </header>
+        <form method="GET" action="/computer/all">
+                <input type="text" name="computer_description">
+                <button type="submit">Suchen</button>
+            </form>
+        <div class="whatever_else_you_need">
+            {% if computer_list %}
+                {% for computer in computer_list %}
+                    <div class="list-group">
+
+                        <a class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</a>
+                         <a class="list-group-item list-group-item-action">   <strong>Status:</strong>
+                        {% if computer.status == 'working' %}
+                            Funktionsfähig
+                        {% elif computer.status == 'broken' %}
+                            <strong>Defekt</strong>
+                        {% else %}
+                            -
+                        {% endif %}<br>
+
+                            <strong>Garantiedauer:</strong>
+                        {% if computer.warranty_period %}
+                            {{ computer.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                            <strong>Einkaufsdatum:</strong> {{ computer.date_of_purchase|default_if_none:'-' }}<br>
+                            <strong>Preis:</strong>
+                        {% if computer.price %}
+                            {{ computer.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                            <strong>Marke:</strong> {{ computer.brand|default_if_none:'-'}}<br>
+                            <strong>Seriennummer: </strong> {{ computer.serialnumber|default_if_none:'-'}}<br>
+
+                        </a>
+                    </div>
+                {% endfor %}
+
+        </div>
+            {% else %}
+                <p>Keine Computer vorhanden .</p>
+            {% endif %}
+    </div>
+{% endblock %}

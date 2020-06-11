@@ -4,19 +4,99 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardForm, \
     CanvasForm, SpeakerSetForm
 from .models import Room, Beamer, Computer, Screen, SmartBoard, Canvas, SpeakerSet
-from .filters import RoomFilter
 
-class RoomIndexView(generic.ListView):
-    template_name = 'inventory_managementsentials/all_rooms.html'
+
+class IndexView(generic.ListView):
+    template_name = 'inventory_managementsentials/index.html'
+
+    def get_queryset(self):
+        return None
+
+
+class RoomView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_rooms.html'
     context_object_name = "room_list"
 
     def get_queryset(self):
-        return Room.objects.order_by('description')
+        filter_description = self.request.GET.get('room_description', None)
+        if filter_description is not None:
+            return Room.objects.filter(description__icontains=filter_description)
+        else:
+            return Room.objects.order_by('description')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['filter'] = RoomFilter(self.request.GET, queryset=self.get_queryset())
-        return context
+
+class BeamerView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_beamers.html'
+    context_object_name = 'beamer_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('beamer_description', None)
+        if filter_description is not None:
+            print(Beamer.objects.filter(description__icontains=filter_description))
+            return Beamer.objects.filter(description__icontains=filter_description)
+        else:
+            return Beamer.objects.order_by('description')
+
+
+class ComputerView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_computer.html'
+    context_object_name = 'computer_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('computer_description', None)
+        if filter_description is not None:
+            return Computer.objects.filter(description__icontains=filter_description)
+        else:
+            return Computer.objects.order_by('description')
+
+
+class ScreenView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_screens.html'
+    context_object_name = 'screen_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('screen_description', None)
+        if filter_description is not None:
+            return Screen.objects.filter(description__icontains=filter_description)
+        else:
+            return Screen.objects.order_by('description')
+
+
+class SmartBoardView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_smartboard.html'
+    context_object_name = 'smartboard_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('smartboard_description', None)
+        if filter_description is not None:
+            return SmartBoard.objects.filter(description__icontains=filter_description)
+        else:
+            return SmartBoard.objects.order_by('description')
+
+
+class CanvasView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_canvas.html'
+    context_object_name = 'canvas_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('canvas_description', None)
+        if filter_description is not None:
+            return Canvas.objects.filter(description__icontains=filter_description)
+        else:
+            return Canvas.objects.order_by('description')
+
+
+class SpeakerSetView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_smartboard.html'
+    context_object_name = 'smartboard_list'
+
+    def get_queryset(self):
+        filter_description = self.request.GET.get('skeaperset_description', None)
+        if filter_description is not None:
+            return SpeakerSet.objects.filter(description__icontains=filter_description)
+        else:
+            return SpeakerSet.objects.order_by('description')
+
 
 class RoomDetailView(generic.DetailView):
     model = Room
