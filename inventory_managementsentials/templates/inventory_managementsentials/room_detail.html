@@ -11,15 +11,15 @@
         <tbody>
         <tr>
             <th scope="row">Lage:</th>
-            <td>{{ object.location }}</td>
+            <td>{{ object.location|default_if_none:'-' }}</td>
         </tr>
         <tr>
             <th scope="row>">Tische:</th>
-            <td>{{ object.table }}</td>
+            <td>{{ object.table|default_if_none:'-' }}</td>
         </tr>
         <tr>
             <th scope="row>">Stühle:</th>
-            <td>{{ object.chair }}</td>
+            <td>{{ object.chair|default_if_none:'-' }}</td>
         </tr>
         <tr>
         <th scope="row">Beamer:</th>

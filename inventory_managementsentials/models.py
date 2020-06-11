@@ -27,7 +27,7 @@ class Location(models.Model):
 
 
 class Room(models.Model):
-    description = models.CharField(max_length=256, unique=True, primary_key=True)
+    description = models.CharField(max_length=99, unique=True, primary_key=True)
     location = models.ForeignKey('Location', null=True, on_delete=models.SET_NULL, blank=True)
     blackboard = models.BooleanField(blank=True, null=True)
     chair = models.DecimalField(blank=True, max_digits=3, decimal_places=0, null=True)
@@ -42,7 +42,7 @@ class Room(models.Model):
 
 
 class Brand(models.Model):
-    description = models.CharField(max_length=256, null=True, unique=True)
+    description = models.CharField(max_length=99, null=True, unique=True)
 
     def __str__(self):
         return self.description
@@ -50,16 +50,16 @@ class Brand(models.Model):
 
 class Device(models.Model):
     room = models.ForeignKey('Room', null=True, blank=True, on_delete=models.SET_NULL)
-    serialnumber = models.CharField(max_length=256, blank=True, null=True)
-    description = models.CharField(max_length=256, unique=True, primary_key=True)
-    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
-    price = models.IntegerField(blank=True, null=True)
-    date_of_purchase = models.DateTimeField(blank=True, null=True)
-    warranty_period = models.IntegerField(blank=True, null=True)
+    description = models.CharField(max_length=99, unique=True, primary_key=True)
     working = 'working'
     broken = 'broken'
     status_choice = [(working, "working"), (broken, "broken")]
     status = models.CharField(choices=status_choice, max_length=7, blank=True, null=True)
+    serialnumber = models.CharField(max_length=99, blank=True, null=True)
+    warranty_period = models.IntegerField(blank=True, null=True)
+    date_of_purchase = models.DateTimeField(blank=True, null=True)
+    price = models.IntegerField(blank=True, null=True)
+    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, blank=True, null=True)
 
     class Meta:
         abstract = True
