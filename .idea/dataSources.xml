@@ -7,11 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="db" uuid="a8581c62-6044-4740-8cf9-ab30720aa90f">
+    <data-source source="LOCAL" name="db" uuid="d1797780-2e43-4c2c-a1a9-abc4e1205b1b">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Joshua\PycharmProjects\Inventory\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\anil-\PycharmProjects\Inventory\db.sqlite3</jdbc-url>
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/license.txt</url>
