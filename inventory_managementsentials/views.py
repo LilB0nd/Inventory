@@ -1,13 +1,13 @@
 from django.http import HttpResponseRedirect
 from django.views import generic
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardForm, \
-    CanvasForm, SpeakerSetForm, RoomUpdateForm
-from .models import Room
+    CanvasForm, SpeakerSetForm
+from .models import Room, Beamer, Computer, Screen, SmartBoard, Canvas, SpeakerSet
 
 
-class IndexView(generic.ListView):
-    template_name = 'inventory_managementsentials/index.html'
+class RoomIndexView(generic.ListView):
+    template_name = 'inventory_managementsentials/all_rooms.html'
     context_object_name = "room_list"
 
     def get_queryset(self):
@@ -23,72 +23,144 @@ def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = RoomForm
+        return redirect('inventory_managementsentials:RoomIndexViewr')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_room.html', context)
+    return render(request, 'inventory_managementsentials/add/add_room.html', context)
+
+
+def room_update_view(request, pk):
+    instance = get_object_or_404(Room, description=pk)
+    form = RoomForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView', pk)
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_room.html', context)
 
 
 def beamer_create_view(request):
     form = BeamerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = BeamerForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_beamer.html', context)
+    return render(request, 'inventory_managementsentials/add/add_beamer.html', context)
+
+
+def beamer_update_view(request, pk):
+    instance = get_object_or_404(Beamer, description=pk)
+    form = BeamerForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_beamer.html', context)
 
 
 def computer_create_view(request):
     form = ComputerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = ComputerForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_computer.html', context)
+    return render(request, 'inventory_managementsentials/add/add_computer.html', context)
+
+
+def computer_update_view(request, pk):
+    instance = get_object_or_404(Computer, description=pk)
+    form = ComputerForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_computer.html', context)
 
 
 def screen_create_view(request):
     form = ScreenForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = ScreenForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_screen.html', context)
+    return render(request, 'inventory_managementsentials/add/add_screen.html', context)
+
+
+def screen_update_view(request, pk):
+    instance = get_object_or_404(Screen, description=pk)
+    form = ScreenForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_screen.html', context)
 
 
 def smartboard_create_view(request):
     form = SmartBoardForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = SmartBoardForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_smartboard.html', context)
+    return render(request, 'inventory_managementsentials/add/add_smartboard.html', context)
+
+
+def smartboard_update_view(request, pk):
+    instance = get_object_or_404(SmartBoard, description=pk)
+    form = SmartBoardForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_smartboard.html', context)
 
 
 def canvas_create_view(request):
     form = CanvasForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = CanvasForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_canvas.html', context)
+    return render(request, 'inventory_managementsentials/add/add_canvas.html', context)
+
+
+def canvas_update_view(request, pk):
+    instance = get_object_or_404(Canvas, description=pk)
+    form = CanvasForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
+    context = {'form': form}
+    return render(request, 'inventory_managementsentials/update/update_canvas.html', context)
 
 
 def speakerset_create_view(request):
     form = SpeakerSetForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = SpeakerSetForm
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/add_speakerset.html', context)
+    return render(request, 'inventory_managementsentials/add/add_speakerset.html', context)
 
 
-def room_update_view(request, pk):
-    instance = get_object_or_404(Room, description=pk)
-    form = RoomUpdateForm(request.POST or None, instance=instance)
+def speakerset_update_view(request, pk):
+    instance = get_object_or_404(SpeakerSet, description=pk)
+    form = SpeakerSetForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
+        return redirect('inventory_managementsentials:RoomIndexView')
+
     context = {'form': form}
-    return render(request, 'inventory_managementsentials/update_room.html', context)
-
-
-
+    return render(request, 'inventory_managementsentials/update/update_canvas.html', context)

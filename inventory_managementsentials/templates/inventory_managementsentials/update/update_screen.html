@@ -1,0 +1,10 @@
+{% block title %}{% endblock %}
+{% block content %}
+        <header>
+                    <h1>Screen updaten </h1>
+
+        </header>
+                <form method="POST">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Update
+{% endblock %}

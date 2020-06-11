@@ -114,16 +114,7 @@ class SpeakerSetForm(forms.ModelForm):
         ]
 
 
-class RoomUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Room
-        fields = [
-            'description',
-            'location',
-            'blackboard',
-            'chair',
-            'table',
-        ]
+
 
 """
 class RawRoomForm(forms.Form):

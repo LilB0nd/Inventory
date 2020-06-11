@@ -71,7 +71,7 @@
         </tr>
 
         <tr>
-            <th scope="row">Computers:</th>
+            <th scope="row">Computer:</th>
             <td>
                 {% if object.computer_set.all %}
                     {% for computer in object.computer_set.all %}
@@ -112,7 +112,7 @@
         </tr>
 
         <tr>
-            <th scope="row">Bildschirme:</th>
+            <th scope="row">Bildschirm:</th>
             <td>
                 {% if object.screen_set.all%}
                     {% for screen in object.screen_set.all %}
@@ -274,7 +274,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <a href="{% url 'inventory_managementsentials:index' %}">Zur Übersicht der Räume</a>
+                <a href="{% url 'inventory_managementsentials:RoomIndexView' %}">Zur Übersicht der Räume</a>
             </td>
         </tr>
         </tbody>
