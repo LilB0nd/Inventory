@@ -11,8 +11,8 @@
             </div>
         </header>
         <form method="GET" action="/computer/all">
-                <input type="text" name="computer_description">
-                <button type="submit">Suchen</button>
+                <input type="text" name="computer_description" placeholder="Computer Bezeichnung">
+                <button type="submit" class="btn btn-primary">Suchen</button>
             </form>
         <div class="whatever_else_you_need">
             {% if computer_list %}
@@ -50,10 +50,11 @@
                         </a>
                     </div>
                 {% endfor %}
-
-        </div>
-            {% else %}
+        {% else %}
                 <p>Keine Computer vorhanden .</p>
             {% endif %}
+
+        </div>
+
     </div>
 {% endblock %}
