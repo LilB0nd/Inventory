@@ -41,7 +41,7 @@ urlpatterns = [
     url(r'^speakerset/all$', views.SpeakerSetView.as_view(), name='SpeakerSetView'),
     url(r'^add/speakerset/$', speakerset_create_view, name='AddSpeakerset'),
     url(r'^update/speakerset/(?P<pk>.+)/$', speakerset_update_view, name='UpdateSpeakerSet'),
-    url(r'^delete/sperakerset/(?P<pk>.+)/$', speakerset_delete_view, name='DeleteSpeakerSet'),
+    url(r'^delete/speakerset/(?P<pk>.+)/$', speakerset_delete_view, name='DeleteSpeakerSet'),
 
     url(r'^register', views.register, name='register'),
     url(r'^login', views.loginPage, name='login'),

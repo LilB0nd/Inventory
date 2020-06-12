@@ -4,7 +4,7 @@
 
     <div class="container">
         <header>
-            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+            <div class="editor-indent">
                 <div class="inner">
                     <h1>SmartBoard Übersicht </h1>
                 </div>
@@ -15,12 +15,14 @@
                 <button type="submit" class="btn btn-primary">Suchen</button>
             <a href='/add/smartboard/' class="btn btn-primary"style="float:right">Smartboard hinzufügen</a>
             </form>
+
         <div class="whatever_else_you_need">
             {% if smartboard_list %}
                 {% for smartboardin in smartboard_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">SmartBoard{{ smartboard.description }}
-                            <strong>Status:</strong>
+                        <br>
+                        <h4 class="list-group-itemlist-group-item-action active">SmartBoard {{ smartboard.description }}</h4>
+                        <a>    <strong>Status:</strong>
                         {% if smartboard.status == 'working' %}
                             Funktionsfähig
                         {% elif smartboard.status == 'broken' %}
@@ -49,10 +51,8 @@
 
                         </a>
                     <div>
-                            <a href='/update/smartboard
-                           /{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag ändern</a>
-                            <a href='/delete/smartboard
-                           /{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag löschen</a>
+                            <a href='/update/smartboard/{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag ändern</a>
+                            <a href='/delete/smartboard/{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag löschen</a>
                         </div>
                     </div>
                 {% endfor %}
