@@ -238,7 +238,7 @@ def screen_create_view(request):
 @login_required(login_url='inventory_managementsentials:login')
 def screen_delete_view(request, pk):
     get_object_or_404(Screen, description=pk).delete()
-    return redirect('inventory_managementsentials:ScreenViewView')
+    return redirect('inventory_managementsentials:ScreenView')
 
 
 @login_required(login_url='inventory_managementsentials:login')

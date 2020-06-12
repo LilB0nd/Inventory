@@ -13,12 +13,13 @@
         <form method="GET" action="/smartboard/all">
                 <input type="text" name="smartboard_description" placeholder="SmartBoard Bezeichnung">
                 <button type="submit" class="btn btn-primary">Suchen</button>
+            <a href='/add/smartboard/' class="btn btn-primary">Smartboard hinzufügen</a>
             </form>
         <div class="whatever_else_you_need">
             {% if smartboard_list %}
                 {% for smartboardin in smartboard_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">SmartBoard{{ smartboard.description }}</a>
+                        <a class="list-group-itemlist-group-item-action active">SmartBoard{{ smartboard.description }}
                             <strong>Status:</strong>
                         {% if smartboard.status == 'working' %}
                             Funktionsfähig
@@ -47,6 +48,12 @@
                             <strong>Seriennummer: </strong> {{ smartboard.serialnumber|default_if_none:'-'}}<br>
 
                         </a>
+                    <div>
+                            <a href='/update/smartboard
+                           /{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag ändern</a>
+                            <a href='/delete/smartboard
+                           /{{ smartboard.description }}' class="btn btn-primary">Smartboard Eintrag löschen</a>
+                        </div>
                     </div>
                 {% endfor %}
 
