@@ -144,5 +144,3 @@ class SpeakerSet(Device):
     class Meta:
         verbose_name = "SpeakerSet"
         verbose_name_plural = "SpeakerSets"
-
-

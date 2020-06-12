@@ -7,11 +7,157 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-    {% block content %}
 
-    {% endblock content %}
+<body>
+<div id="viewport">
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <header>
+      <a href="#">Inventory-Management</a>
+    </header>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="zmdi zmdi-view-dashboard"></i> Räume Übersicht
+        </a>
+      </li>
+
+        <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <i class="zmdi zmdi-view-dashboard"></i>Hinzufügen
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" style="color:black" href="#">Beamer</a>
+        <a class="dropdown-item" style="color:black" href="#">Leinwand</a>
+        <a class="dropdown-item" style="color:black" href="#">Computer</a>
+          <a class="dropdown-item" style="color:black" href="#">Raum</a>
+          <a class="dropdown-item" style="color:black" href="#">Bildschirm</a>
+          <a class="dropdown-item" style="color:black" href="#">Smardboard</a>
+          <a class="dropdown-item" style="color:black" href="#">Lautsprecheranlage</a>
+      </div>
+    </li>
+        <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <i class="zmdi zmdi-view-dashboard"></i>Bearbeiten
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" style="color:black" href="#">Beamer</a>
+        <a class="dropdown-item" style="color:black" href="#">Leinwand</a>
+        <a class="dropdown-item" style="color:black" href="#">Computer</a>
+          <a class="dropdown-item" style="color:black" href="#">Raum</a>
+          <a class="dropdown-item" style="color:black" href="#">Bildschirm</a>
+          <a class="dropdown-item" style="color:black" href="#">Smardboard</a>
+          <a class="dropdown-item" style="color:black" href="#">Lautsprecheranlage</a>
+      </div>
+    </li>
+
+    </ul>
+  </div>
+  <!-- Content -->
+      <div class="container">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'inventory_managementsentials:logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+<div id="content">
+    <div class="container-fluid">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+  </div>
+</div>
+
 </body>
+<style>
+
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+/* Toggle Styles */
+
+#viewport {
+  padding-left: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #37474F;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar header {
+  background-color: #263238;
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+}
+
+#sidebar header a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar header a:hover {
+  color: #fff;
+}
+
+#sidebar .nav{
+
+}
+
+#sidebar .nav a{
+  background: none;
+  border-bottom: 1px solid #455A64;
+  color: #CFD8DC;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+#sidebar .nav a:hover{
+  background: none;
+  color: #ECEFF1;
+}
+
+#sidebar .nav a i{
+  margin-right: 16px;
+}
+</style>
 </html>

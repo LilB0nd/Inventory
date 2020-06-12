@@ -30,5 +30,8 @@ urlpatterns = [
     url(r'^update/smartboard/(?P<pk>.+)/$', smartboard_update_view),
     url(r'^update/canvas/(?P<pk>.+)/$', canvas_update_view),
     url(r'^update/speakerset/(?P<pk>.+)/$', speakerset_update_view),
+    url(r'^register',views.register,name='register'),
+    url(r'^login', views.loginPage, name='login'),
+    url(r'^logout', views.logoutUser, name='logout')
     ]
 #url(r'^$', views.IndexView.as_view(), name='index'),
