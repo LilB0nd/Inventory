@@ -1,4 +1,3 @@
-from django.http import HttpResponseRedirect
 from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardForm, \
@@ -9,6 +8,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+class Home(generic.ListView,):
+    template_name = 'inventory_managementsentials/links.html'
+    def get_queryset(self):
+        return None
 
 class RoomView(LoginRequiredMixin, generic.ListView):
     login_url = 'inventory_managementsentials:login'
