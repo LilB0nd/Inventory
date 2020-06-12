@@ -4,7 +4,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardForm, \
     CanvasForm, SpeakerSetForm, CreateUserForm
 from .models import Room, Beamer, Computer, Screen, SmartBoard, Canvas, SpeakerSet
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
