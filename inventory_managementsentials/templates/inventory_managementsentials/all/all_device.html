@@ -13,14 +13,22 @@
         <form method="GET" action="/device/all">
                 <input type="text" name="description" placeholder='Gegenstand Bezeichnung'>
                 <button type="submit" class="btn btn-primary">Suchen</button>
+
+            </form>
+    <br>
+        <form method="GET" action="/device/all">
+            Alle benutzen Geräte anzeigen:
+        <input type="submit" class="btn btn-primary" value="click" name="use">
             </form>
         <div class="whatever_else_you_need">
             <h1>Beamer</h1>
             {% if beamer_list %}
                 {% for beamer in beamer_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">Beamer {{ beamer.description }}</a>
-                        <a class="list-group-item list-group-item-action"><strong>Anschlüsse:</strong>
+                        <h4 class="list-group-itemlist-group-item-action active">Beamer {{ beamer.description }}</h4>
+                        <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ beamer.room|default_if_none:'-' }}<br>
+                            <strong>Anschlüsse:</strong>
                             {% if beamer.HDMI %}HDMI,{% endif %}
                             {% if beamer.VGA %}VGA,{% endif %}
                             {% if beamer.DVI %}DVI,{% endif %}
@@ -60,13 +68,16 @@
                 <p>Keine Computer vorhanden.</p>
             {% endif %}
         </div>
+        <br>
         <div class="whatever_else_you_need">
             <h1>Computer</h1>
             {% if computer_list %}
                 {% for computer in computer_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</a>
-                         <a class="list-group-item list-group-item-action">   <strong>Status:</strong>
+                        <h4 class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</h4>
+                         <a class="list-group-item list-group-item-action">
+                         <strong>Raum: </strong>{{ computer.room|default_if_none:'-' }}<br>
+                             <strong>Status:</strong>
                         {% if computer.status == 'working' %}
                             Funktionsfähig
                         {% elif computer.status == 'broken' %}
@@ -100,13 +111,16 @@
                 <p>Keine Computer vorhanden.</p>
             {% endif %}
         </div>
+        <br>
         <div class="whatever_else_you_need">
             <h1>Bildschirm</h1>
                 {% if screen_list %}
                     {% for screen in screen_list %}
                         <div class="list-group">
-                            <a class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</a>
-                            <a class="list-group-item list-group-item-action"><strong>Bildschirm Format:</strong>
+                            <h4 class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</h4>
+                            <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ screen.room|default_if_none:'-' }}<br>
+                                <strong>Bildschirm Format:</strong>
                                 {{ screen.screen_format }}<br>
                                 <strong>Status:</strong>
                             {% if screen.status == 'working' %}
@@ -143,13 +157,15 @@
                     <p>Keine Bildschirme vorhanden.</p>
                 {% endif %}
         </div>
+        <br>
         <div class="whatever_else_you_need">
             <h1>SmartBoard</h1>
                 {% if smartboard_list %}
-                    {% for smartboardin in smartboard_list %}
+                    {% for smartboard in smartboard_list %}
                         <div class="list-group">
-                            <a class="list-group-itemlist-group-item-action active">smartboard{{ smartboard.description }}
+                        <h4 class="list-group-itemlist-group-item-action active">SmartBoard{{ smartboard.description }}</h4>
                             <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ smartboard.room|default_if_none:'-' }}<br>
                                 <strong>Status:</strong>
                             {% if smartboard.status == 'working' %}
                                 Funktionsfähig
@@ -186,14 +202,17 @@
                     <p>Keine SmartBoard vorhanden.</p>
                 {% endif %}
         </div>
+        <br>
         <div class="whatever_else_you_need">
             <h1>Leinwand</h1>
             {% if canvas_list %}
                 {% for canvas in canvas_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">Leinwand {{ canvas.description }}</a>
-                        <a class="list-group-item list-group-item-action"><strong>Leinwand Format:</strong>
-                            {{ canvas.canvas_format }}
+                        <h4 class="list-group-itemlist-group-item-action active">Leinwand {{ canvas.description }}</h4>
+                        <a class="list-group-item list-group-item-action">
+                        <strong>Raum: </strong>{{ canvas.room|default_if_none:'-' }}<br>
+                            <strong>Leinwand Format:</strong>
+                            {{ canvas.canvas_format }}<br>
                             <strong>Status:</strong>
                         {% if canvas.status == 'working' %}
                             Funktionsfähig
@@ -229,15 +248,17 @@
             {% else %}
                 <p>Keine Leinwande vorhanden.</p>
             {% endif %}
-        </div>
+    <br>
         <div class="whatever_else_you_need">
             <h1>Audioanlage</h1>
                 {% if speakerset_list %}
                     {% for speakerset in speakerset_list %}
                         <div class="list-group">
-                            <a class="list-group-itemlist-group-item-action active">speakerset {{ speakerset.description }}</a>
-                            <a class="list-group-item list-group-item-action"><strong>Anzahl der Lautsprecher:</strong>
-                                {{ speakerset.quantity }}
+                            <h4 class="list-group-itemlist-group-item-action active">Audioanlage {{ speakerset.description }}</h4>
+                            <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ computer.room|default_if_none:'-' }}<br>
+                                <strong>Anzahl der Lautsprecher:</strong>
+                                {{ speakerset.quantity }}<br>
                                 <strong>Status:</strong>
                             {% if speakerset.status == 'working' %}
                                 Funktionsfähig
@@ -266,13 +287,13 @@
                                 <strong>Seriennummer: </strong> {{ speakerset.serialnumber|default_if_none:'-'}}<br>
 
                             </a>
-
+                        </div>
                     {% endfor %}
 
-                        </div>
+
                 {% else %}
                     <p>Keine Audioanlagen vorhanden.</p>
                 {% endif %}
-            </div>
+        </div>
     </div>
 {% endblock %}

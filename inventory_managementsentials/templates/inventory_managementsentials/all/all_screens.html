@@ -20,7 +20,9 @@
                 {% for screen in screen_list %}
                     <div class="list-group">
                         <h4 class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</h4>
-                        <a class="list-group-item list-group-item-action"><strong>Bildschirm Format:</strong>
+                        <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ screen.room|default_if_none:'-' }}<br>
+                            <strong>Bildschirm Format:</strong>
                             {{ screen.screen_format }}<br>
                             <strong>Status:</strong>
                         {% if screen.status == 'working' %}

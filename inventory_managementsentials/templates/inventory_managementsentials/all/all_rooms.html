@@ -22,6 +22,7 @@
             {% if room_list %}
                 {% for room in room_list %}
                     <div class="list-group">
+                    <br>
                        <h4> <a href="{% url 'inventory_managementsentials:room' room.description %}" class="list-group-itemlist-group-item-action active">Raum {{ room.description }}</a></h4>
                         <a href="#" class="list-group-item list-group-item-action"><strong>Lage: </strong>{{ room.location|default_if_none:"keine Angabe" }}</a>
 

@@ -21,12 +21,12 @@ class BeamerForm(forms.ModelForm):
         fields = [
             'room',
             'description',
-            'status',
             'HDMI',
             'VGA',
             'DVI',
             'DB',
             'USBTypeC',
+            'status',
             'serialnumber',
             'warranty_period',
             'date_of_purchase',
@@ -57,8 +57,8 @@ class ScreenForm(forms.ModelForm):
         fields = [
             'room',
             'description',
-            'status',
             'screen_format',
+            'status',
             'serialnumber',
             'warranty_period',
             'date_of_purchase',
@@ -88,8 +88,8 @@ class CanvasForm(forms.ModelForm):
         fields = [
             'room',
             'description',
-            'status',
             'canvas_format',
+            'status',
             'serialnumber',
             'warranty_period',
             'date_of_purchase',
@@ -104,8 +104,8 @@ class SpeakerSetForm(forms.ModelForm):
         model = SpeakerSet
         fields = [
             'room',
-            'quantity',
             'description',
+            'quantity',
             'status',
             'serialnumber',
             'warranty_period',

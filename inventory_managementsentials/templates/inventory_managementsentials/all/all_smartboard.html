@@ -18,11 +18,13 @@
 
         <div class="whatever_else_you_need">
             {% if smartboard_list %}
-                {% for smartboardin in smartboard_list %}
+                {% for smartboard in smartboard_list %}
                     <div class="list-group">
                         <br>
                         <h4 class="list-group-itemlist-group-item-action active">SmartBoard {{ smartboard.description }}</h4>
-                        <a>    <strong>Status:</strong>
+                        <a class="list-group-item list-group-item-action">
+                            <strong>Raum: </strong>{{ smartboard.room|default_if_none:'-' }}<br>
+                            <strong>Status:</strong>
                         {% if smartboard.status == 'working' %}
                             Funktionsfähig
                         {% elif smartboard.status == 'broken' %}

@@ -72,6 +72,15 @@ class DeviceView(LoginRequiredMixin, generic.ListView):
             context['speakerset_list'] = SpeakerSet.objects.filter(description__icontains=filter_description)
             return context
 
+        use = self.request.GET.get("use", None)
+        if use is not None:
+            context['beamer_list'] = Beamer.objects.exclude(room=None)
+            context['computer_list'] = Computer.objects.exclude(room=None)
+            context['screen_list'] = Screen.objects.exclude(room=None)
+            context['smartboard_list'] = SmartBoard.objects.exclude(room=None)
+            context['canvas_list'] = Canvas.objects.exclude(room=None)
+            context['speakerset_list'] = SpeakerSet.objects.exclude(room=None)
+
         return context
 
 
