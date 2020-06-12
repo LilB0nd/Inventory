@@ -273,13 +273,15 @@
                 {% endif %}
         </tr>
         <tr>
-            <td colspan="2">
-                <a href="{% url 'inventory_managementsentials:RoomView' %}">Zur Übersicht der Räume</a>
-            </td>
+
         </tr>
         </tbody>
     </table>
-                <form method="GET">
-                <button type="submit" class="btn btn-primary" name="room_delete">Eintrag löschen</button>
-                </form>
+        <div>
+            <a href='/delete/room/{{ room.description }}' class="btn btn-primary">Eintrag löschen</a>
+            <a href='/update/room/{{ room.description }}' class="btn btn-primary">Eintrag ändern</a>
+        </div>
+    <br>
+    <br>
+    <a href="{% url 'inventory_managementsentials:RoomView' %}" class="btn btn-primary">Zur Übersicht der Räume</a>
 {% endblock %}

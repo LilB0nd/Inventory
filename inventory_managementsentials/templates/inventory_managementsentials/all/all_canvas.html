@@ -13,14 +13,15 @@
         <form method="GET" action="/canvas/all">
                 <input type="text" name="canvas_description" placeholder="Leinwand Bezeichnung">
                 <button type="submit" class="btn btn-primary">Suchen</button>
+                <a href='/add/canvas/' class="btn btn-primary">Leinwand hinzufügen</a>
             </form>
         <div class="whatever_else_you_need">
             {% if canvas_list %}
                 {% for canvas in canvas_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">Leinwand {{ canvas.description }}</a>
+                        <h4 class="list-group-itemlist-group-item-action active">Leinwand {{ canvas.description }}</h4>
                         <a class="list-group-item list-group-item-action"><strong>Leinwand Format:</strong>
-                            {{ canvas.canvas_format }}
+                            {{ canvas.canvas_format }}<br>
                             <strong>Status:</strong>
                         {% if canvas.status == 'working' %}
                             Funktionsfähig
@@ -49,6 +50,10 @@
                            <strong>Seriennummer: </strong> {{ canvas.serialnumber|default_if_none:'-'}}<br>
 
                         </a>
+                    <div>
+                            <a href='/update/canvas/{{ canvas.description }}' class="btn btn-primary">Leinwand Eintrag Ändern</a>
+                            <a href='/delete/canvas/{{ canvas.description }}' class="btn btn-primary">Leinwand Eintrag Löschen</a>
+                        </div>
                     </div>
                 {% endfor %}
 

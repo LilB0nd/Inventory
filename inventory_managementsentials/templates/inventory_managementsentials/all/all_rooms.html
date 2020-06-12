@@ -4,17 +4,19 @@
 
     <div class="container">
         <header>
-            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+            <div class="editor-indent">
                 <div class="inner">
                     <h1>Räume Übersicht </h1>
                 </div>
             </div>
         </header>
-        <div class="container">
+        <div>
             <form method="GET" action="/room/all">
                 <input type="text" placeholder="Raum Bezeichnung" name="room_description">
                 <button type="submit" class="btn btn-primary">Suchen</button>
+                <a href='/add/room/' class="btn btn-primary">Raum hinzufügen</a>
             </form>
+
         </div>
         <div class="whatever_else_you_need">
             {% if room_list %}

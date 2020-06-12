@@ -13,13 +13,14 @@
         <form method="GET" action="/computer/all">
                 <input type="text" name="computer_description" placeholder="Computer Bezeichnung">
                 <button type="submit" class="btn btn-primary">Suchen</button>
+                <a href='/add/computer/' class="btn btn-primary">Computer hinzufügen</a>
             </form>
         <div class="whatever_else_you_need">
             {% if computer_list %}
                 {% for computer in computer_list %}
                     <div class="list-group">
 
-                        <a class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</a>
+                        <h4 class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</h4>
                          <a class="list-group-item list-group-item-action">   <strong>Status:</strong>
                         {% if computer.status == 'working' %}
                             Funktionsfähig
@@ -48,6 +49,10 @@
                             <strong>Seriennummer: </strong> {{ computer.serialnumber|default_if_none:'-'}}<br>
 
                         </a>
+                    <div>
+                            <a href='/update/computer/{{ computer.description }}' class="btn btn-primary">Computer Eintrag ändern</a>
+                            <a href='/delete/computer/{{ computer.description }}' class="btn btn-primary">Computer Eintrag löschen</a>
+                        </div>
                     </div>
                 {% endfor %}
         {% else %}

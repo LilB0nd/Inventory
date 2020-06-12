@@ -13,14 +13,15 @@
         <form method="GET" action="/screen/all">
                 <input type="text" name="screen_description" placeholder="Bildschirm Bezeichnung">
                 <button type="submit" class="btn btn-primary">Suchen</button>
+                <a href='/add/screen/' class="btn btn-primary">Screen hinzufügen</a>
             </form>
         <div class="whatever_else_you_need">
             {% if screen_list %}
                 {% for screen in screen_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</a>
+                        <h4 class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</h4>
                         <a class="list-group-item list-group-item-action"><strong>Bildschirm Format:</strong>
-                            {{ screen.screen_format }}
+                            {{ screen.screen_format }}<br>
                             <strong>Status:</strong>
                         {% if screen.status == 'working' %}
                             Funktionsfähig
@@ -49,7 +50,11 @@
                             <strong>Seriennummer: </strong> {{ screen.serialnumber|default_if_none:'-'}}<br>
 
                         </a>
-                    </div>
+                        <div>
+                            <a href='/update/screen/{{ screen.description }}' class="btn btn-primary">Bildschirm Eintrag ändern</a>
+                            <a href='/delete/screen/{{ screen.description }}' class="btn btn-primary">Bildschirm Eintrag löschen</a>
+                        </div>
+                   </div>
                 {% endfor %}
 
         </div>
