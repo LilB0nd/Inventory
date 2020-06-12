@@ -36,6 +36,12 @@ class BeamerView(LoginRequiredMixin, generic.ListView):
         else:
             return Beamer.objects.order_by('description')
 
+
+class RoomDetailView(generic.DetailView):
+    template_name = 'inventory_managementsentials/room_detail.html'
+    model = Room
+
+
 class DeviceView(generic.ListView):
     template_name = 'inventory_managementsentials/all/all_device.html'
 
