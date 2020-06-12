@@ -1,10 +1,19 @@
-{% block title %}{% endblock %}
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}Screen updaten{% endblock %}
 {% block content %}
-        <header>
-                    <h1>Screen updaten </h1>
+<div class="container">
+    <header>
+        <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+            <div class="inner">
+                <h1>Screen updaten </h1>
+            </div>
+        </div>
+    </header>
 
-        </header>
-                <form method="POST">{% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Update
+
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Save">
+    </form>
+</div>
 {% endblock %}
