@@ -5,6 +5,7 @@ from .views import *
 app_name = "inventory_managementsentials"
 
 urlpatterns = [
+    url('^$',views.Home.as_view(),name='home'),
     url(r'^room/all/$', views.RoomView.as_view(), name='RoomView'),
     url(r'^room/(?P<pk>.+)/$', views.RoomDetailView.as_view(), name='room'),
     url(r'^add/room/$', room_create_view,  name='AddRoom'),

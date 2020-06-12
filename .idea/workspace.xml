@@ -41,7 +41,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9d09330-16ef-49f7-b991-8c44386fcab9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/inventory_managementsentials/templates/inventory_managementsentials/links.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory_managementsentials/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/inventory_managementsentials/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +247,7 @@
       <workItem from="1591981165883" duration="174000" />
       <workItem from="1591981425759" duration="5113000" />
       <workItem from="1591987168585" duration="1047000" />
-      <workItem from="1591988292839" duration="1663000" />
+      <workItem from="1591988292839" duration="6385000" />
     </task>
     <task id="LOCAL-00001" summary="venv">
       <created>1587377760325</created>
@@ -421,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591989351857</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;db.sqlite3">
+      <created>1591990218311</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1591990218311</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +487,7 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="189" y="159" key="#manage/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591890063356" />
-    <state x="585" y="82" key="CommitChangelistDialog2" timestamp="1591989351115">
+    <state x="585" y="82" key="CommitChangelistDialog2" timestamp="1591990217683">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="585" y="42" key="CommitChangelistDialog2/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591986698381" />
@@ -485,7 +495,7 @@
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040/-1920.84.1920.1040@0.0.1920.1040" timestamp="1591876074766" />
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591804863305" />
     <state x="585" y="151" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378004129" />
-    <state x="585" y="82" key="CommitChangelistDialog2/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591989351115" />
+    <state x="585" y="82" key="CommitChangelistDialog2/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591990217683" />
     <state x="254" y="53" key="DiffContextDialog" timestamp="1591981900057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -496,26 +506,26 @@
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591980897562" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587572081144" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588674714214" />
-    <state width="1877" height="289" key="GridCell.Tab.0.bottom" timestamp="1591988224727">
+    <state width="1877" height="289" key="GridCell.Tab.0.bottom" timestamp="1591993467820">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="636" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587474204838" />
-    <state width="1877" height="289" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591988224726" />
-    <state width="1877" height="289" key="GridCell.Tab.0.center" timestamp="1591988224726">
+    <state width="1877" height="289" key="GridCell.Tab.0.bottom/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591993467820" />
+    <state width="1877" height="289" key="GridCell.Tab.0.center" timestamp="1591993467819">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="636" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587474204838" />
-    <state width="1877" height="289" key="GridCell.Tab.0.center/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591988224726" />
-    <state width="1877" height="289" key="GridCell.Tab.0.left" timestamp="1591988224726">
+    <state width="1877" height="289" key="GridCell.Tab.0.center/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591993467819" />
+    <state width="1877" height="289" key="GridCell.Tab.0.left" timestamp="1591993467819">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="636" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587474204838" />
-    <state width="1877" height="289" key="GridCell.Tab.0.left/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591988224726" />
-    <state width="1877" height="289" key="GridCell.Tab.0.right" timestamp="1591988224726">
+    <state width="1877" height="289" key="GridCell.Tab.0.left/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591993467819" />
+    <state width="1877" height="289" key="GridCell.Tab.0.right" timestamp="1591993467820">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state width="636" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587474204838" />
-    <state width="1877" height="289" key="GridCell.Tab.0.right/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591988224726" />
+    <state width="1877" height="289" key="GridCell.Tab.0.right/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591993467820" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1591981293836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -548,7 +558,7 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591711841760" />
-    <state x="552" y="296" key="Vcs.Push.Dialog.v2" timestamp="1591989357066">
+    <state x="552" y="296" key="Vcs.Push.Dialog.v2" timestamp="1591990220267">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591986701040" />
@@ -556,7 +566,7 @@
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.84.1920.1040@0.0.1920.1040" timestamp="1591876078062" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591804868220" />
     <state x="552" y="288" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1587378016841" />
-    <state x="552" y="296" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591989357066" />
+    <state x="552" y="296" key="Vcs.Push.Dialog.v2/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591990220267" />
     <state x="656" y="379" key="com.intellij.ide.util.TipDialog" timestamp="1587377988331">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -579,10 +589,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/inventory_managementsentials/urls.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/inventory_managementsentials/models.py</url>
           <line>20</line>
           <option name="timeStamp" value="2" />
@@ -593,6 +599,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Inventory$settings.coverage" NAME="settings Coverage Results" MODIFIED="1587390234504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intern_szut" />
     <SUITE FILE_PATH="coverage/Inventory$urls.coverage" NAME="urls Coverage Results" MODIFIED="1587389949127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intern_szut" />
-    <SUITE FILE_PATH="coverage/Inventory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1591988377553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Inventory$manage.coverage" NAME="manage Coverage Results" MODIFIED="1591993467813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
