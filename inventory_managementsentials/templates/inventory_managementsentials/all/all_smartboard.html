@@ -11,14 +11,14 @@
             </div>
         </header>
         <form method="GET" action="/smartboard/all">
-                <input type="text" name="smartboard_description">
-                <button type="submit">Suchen</button>
+                <input type="text" name="smartboard_description" placeholder="SmartBoard Bezeichnung">
+                <button type="submit" class="btn btn-primary">Suchen</button>
             </form>
         <div class="whatever_else_you_need">
             {% if smartboard_list %}
                 {% for smartboardin in smartboard_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">smartboard{{ smartboard.description }}</a>
+                        <a class="list-group-itemlist-group-item-action active">SmartBoard{{ smartboard.description }}</a>
                             <strong>Status:</strong>
                         {% if smartboard.status == 'working' %}
                             Funktionsfähig

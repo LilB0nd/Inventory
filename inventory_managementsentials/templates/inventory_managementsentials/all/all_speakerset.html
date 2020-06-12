@@ -11,14 +11,14 @@
             </div>
         </header>
         <form method="GET" action="/speakerset/all">
-                <input type="text" name="speakerset_description">
-                <button type="submit">Suchen</button>
+                <input type="text" name="speakerset_description" placeholder="">
+                <button type="submit" class="btn btn-primary">Suchen</button>
             </form>
         <div class="whatever_else_you_need">
             {% if speakerset_list %}
                 {% for speakerset in speakerset_list %}
                     <div class="list-group">
-                        <a class="list-group-itemlist-group-item-action active">speakerset {{ speakerset.description }}</a>
+                        <a class="list-group-itemlist-group-item-action active">Speakerset {{ speakerset.description }}</a>
                         <a class="list-group-item list-group-item-action"><strong>Anzahl der Lautsprecher:</strong>
                             {{ speakerset.quantity }}
                             <strong>Status:</strong>

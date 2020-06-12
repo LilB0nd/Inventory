@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 
+
 class IndexView(generic.ListView):
     template_name = 'inventory_managementsentials/index.html'
 
@@ -26,6 +27,11 @@ class RoomView(generic.ListView):
             return Room.objects.filter(description__icontains=filter_description)
         else:
             return Room.objects.order_by('description')
+
+
+class RoomDetailView(generic.DetailView):
+    model = Room
+    template_name = 'inventory_managementsentials/room_detail.html'
 
 
 class DeviceView(generic.ListView):
@@ -117,7 +123,7 @@ class CanvasView(generic.ListView):
 
 
 class SpeakerSetView(generic.ListView):
-    template_name = 'inventory_managementsentials/all/all_smartboard.html'
+    template_name = 'inventory_managementsentials/all/all_speakerset.html'
     context_object_name = 'smartboard_list'
 
     def get_queryset(self):
@@ -128,11 +134,6 @@ class SpeakerSetView(generic.ListView):
             return SpeakerSet.objects.order_by('description')
 
 
-class RoomDetailView(generic.DetailView):
-    model = Room
-    template_name = 'inventory_managementsentials/room_detail.html'
-
-
 def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
@@ -141,6 +142,11 @@ def room_create_view(request):
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_room.html', context)
+
+
+def room_delete_view(request, pk):
+    get_object_or_404(Room, description=pk).delete()
+    return redirect('inventory_managementsentials:RoomView')
 
 
 def room_update_view(request, pk):
@@ -291,6 +297,7 @@ def register(request, ):
     return render(request, 'inventory_managementsentials/register.html', {'register_form': register_form})
 
 
+
 def loginPage(request, ):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -305,6 +312,7 @@ def loginPage(request, ):
             messages.info(request, 'Benutzername oder Passwort ist Falsch')
 
     return render(request, 'inventory_managementsentials/login.html', {'login':login})
+
 
 
 def logoutUser(request, ):

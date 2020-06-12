@@ -13,16 +13,13 @@
         <div class="container">
             <form method="GET" action="/room/all">
                 <input type="text" placeholder="Raum Bezeichnung" name="room_description">
-
                 <button type="submit" class="btn btn-primary">Suchen</button>
             </form>
         </div>
         <div class="whatever_else_you_need">
             {% if room_list %}
-
                 {% for room in room_list %}
                     <div class="list-group">
-
                         <a href="{% url 'inventory_managementsentials:room' room.description %}" class="list-group-itemlist-group-item-action active">Raum {{ room.description }}</a>
                         <a href="#" class="list-group-item list-group-item-action"><strong>Lage: </strong>{{ room.location|default_if_none:"keine Angabe" }}</a>
 
@@ -31,7 +28,7 @@
 
         </div>
             {% else %}
-                <p>Keine Räumer vorhanden</p>
+                <p>Keine Räume vorhanden</p>
             {% endif %}
     </div>
 {% endblock %}
