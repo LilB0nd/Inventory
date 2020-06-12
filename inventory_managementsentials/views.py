@@ -9,6 +9,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 
+class IndexView(generic.ListView):
+    template_name = 'inventory_managementsentials/index.html'
+
+    def get_queryset(self):
+        return None
+
 
 class RoomView(generic.ListView):
     template_name = 'inventory_managementsentials/all/all_rooms.html'
@@ -22,6 +28,34 @@ class RoomView(generic.ListView):
             return Room.objects.order_by('description')
 
 
+class DeviceView(generic.ListView):
+    template_name = 'inventory_managementsentials/all/all_device.html'
+
+    def get_queryset(self):
+        return None
+
+    def get_context_data(self, *, object_list=None,  **kwargs, ):
+        context = super().get_context_data(**kwargs)
+        context['beamer_list'] = Beamer.objects.order_by('description')
+        context['computer_list'] = Computer.objects.order_by('description')
+        context['screen_list'] = Screen.objects.order_by('description')
+        context['smartboard_list'] = SmartBoard.objects.order_by('description')
+        context['canvas_list'] = Canvas.objects.order_by('description')
+        context['speakerset_list'] = SpeakerSet.objects.order_by('description')
+
+        filter_description = self.request.GET.get('description', None)
+        if filter_description is not None:
+            context['beamer_list'] = Beamer.objects.filter(description__icontains=filter_description)
+            context['computer_list'] = Computer.objects.filter(description__icontains=filter_description)
+            context['screen_list'] = Screen.objects.filter(description__icontains=filter_description)
+            context['smartboard_list'] = SmartBoard.objects.filter(description__icontains=filter_description)
+            context['canvas_list'] = Canvas.objects.filter(description__icontains=filter_description)
+            context['speakerset_list'] = SpeakerSet.objects.filter(description__icontains=filter_description)
+            return context
+
+        return context
+
+
 class BeamerView(generic.ListView):
     template_name = 'inventory_managementsentials/all/all_beamers.html'
     context_object_name = 'beamer_list'
@@ -29,7 +63,6 @@ class BeamerView(generic.ListView):
     def get_queryset(self):
         filter_description = self.request.GET.get('beamer_description', None)
         if filter_description is not None:
-            print(Beamer.objects.filter(description__icontains=filter_description))
             return Beamer.objects.filter(description__icontains=filter_description)
         else:
             return Beamer.objects.order_by('description')
@@ -104,7 +137,7 @@ def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:RoomDetailRoom')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_room.html', context)
@@ -115,7 +148,7 @@ def room_update_view(request, pk):
     form = RoomForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView', pk)
+        return redirect('inventory_managementsentials:RoomDetailRoom', pk)
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_room.html', context)
@@ -125,7 +158,7 @@ def beamer_create_view(request):
     form = BeamerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:BeamerView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_beamer.html', context)
@@ -136,7 +169,7 @@ def beamer_update_view(request, pk):
     form = BeamerForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:BeamerView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_beamer.html', context)
@@ -146,7 +179,7 @@ def computer_create_view(request):
     form = ComputerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:ComputerView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_computer.html', context)
@@ -157,7 +190,7 @@ def computer_update_view(request, pk):
     form = ComputerForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:ComputerView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_computer.html', context)
@@ -167,7 +200,7 @@ def screen_create_view(request):
     form = ScreenForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:ScreenView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_screen.html', context)
@@ -178,7 +211,7 @@ def screen_update_view(request, pk):
     form = ScreenForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:ScreenView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_screen.html', context)
@@ -188,7 +221,7 @@ def smartboard_create_view(request):
     form = SmartBoardForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:SmartBoardView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_smartboard.html', context)
@@ -199,7 +232,7 @@ def smartboard_update_view(request, pk):
     form = SmartBoardForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:SmartBoardView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_smartboard.html', context)
@@ -209,7 +242,7 @@ def canvas_create_view(request):
     form = CanvasForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:CanvasView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_canvas.html', context)
@@ -220,7 +253,7 @@ def canvas_update_view(request, pk):
     form = CanvasForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:CanvasView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_canvas.html', context)
@@ -230,7 +263,7 @@ def speakerset_create_view(request):
     form = SpeakerSetForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:SpeakerSetView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_speakerset.html', context)
@@ -241,7 +274,7 @@ def speakerset_update_view(request, pk):
     form = SpeakerSetForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomView')
+        return redirect('inventory_managementsentials:SpeakerSetView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_canvas.html', context)

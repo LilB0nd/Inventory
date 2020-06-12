@@ -9,6 +9,7 @@ app_name = "inventory_managementsentials"
 
 urlpatterns = [
     url(r'^room/all/$', views.RoomView.as_view(), name='RoomView'),
+    url(r'^device/all$', views.DeviceView.as_view(), name='DeviceView'),
     url(r'^beamer/all$', views.BeamerView.as_view(), name='BeamerView'),
     url(r'^computer/all$', views.ComputerView.as_view(), name='ComputerView'),
     url(r'^screen/all$', views.ScreenView.as_view(), name='ScreenView'),

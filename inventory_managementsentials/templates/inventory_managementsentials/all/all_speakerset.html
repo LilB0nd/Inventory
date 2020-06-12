@@ -49,12 +49,13 @@
                             <strong>Seriennummer: </strong> {{ speakerset.serialnumber|default_if_none:'-'}}<br>
 
                         </a>
-                    </div>
+
                 {% endfor %}
 
-        </div>
+                    </div>
             {% else %}
                 <p>Keine Audioanlagen vorhanden.</p>
             {% endif %}
+        </div>
     </div>
 {% endblock %}

@@ -1,0 +1,278 @@
+{% extends "inventory_managementsentials/base.html" %}
+{% block title %}Gegenstand Übersicht{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <header>
+            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+                <div class="inner">
+                    <h1>Gegenstand Übersicht </h1>
+                </div>
+            </div>
+        </header>
+        <form method="GET" action="/device/all">
+                <input type="text" name="description" placeholder='Gegenstand Bezeichnung'>
+                <button type="submit" class="btn btn-primary">Suchen</button>
+            </form>
+        <div class="whatever_else_you_need">
+            <h1>Beamer</h1>
+            {% if beamer_list %}
+                {% for beamer in beamer_list %}
+                    <div class="list-group">
+                        <a class="list-group-itemlist-group-item-action active">Beamer {{ beamer.description }}</a>
+                        <a class="list-group-item list-group-item-action"><strong>Anschlüsse:</strong>
+                            {% if beamer.HDMI %}HDMI,{% endif %}
+                            {% if beamer.VGA %}VGA,{% endif %}
+                            {% if beamer.DVI %}DVI,{% endif %}
+                            {% if beamer.DB %}DB,{% endif %}
+                            {% if beamer.USBTypeC %}USBTypeC,{% endif %}<br>
+                            <strong>Status:</strong>
+                        {% if beamer.status == 'working' %}
+                            Funktionsfähig
+                        {% elif beamer.status == 'broken' %}
+                            <strong>Defekt</strong>
+                        {% else %}
+                            -
+                        {% endif %}<br>
+
+                            <strong>Garantiedauer:</strong>
+                        {% if beamer.warranty_period %}
+                            {{ beamer.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                            <strong>Einkaufsdatum:</strong> {{ beamer.date_of_purchase|default_if_none:'-' }}<br>
+                            <strong>Preis:</strong>
+                        {% if beamer.price %}
+                            {{ beamer.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                            <strong>Marke:</strong> {{ beamer.brand|default_if_none:'-'}}<br>
+                            <strong>Seriennummer: </strong> {{ beamer.serialnumber|default_if_none:'-'}}<br>
+
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Keine Computer vorhanden.</p>
+            {% endif %}
+        </div>
+        <div class="whatever_else_you_need">
+            <h1>Computer</h1>
+            {% if computer_list %}
+                {% for computer in computer_list %}
+                    <div class="list-group">
+                        <a class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</a>
+                         <a class="list-group-item list-group-item-action">   <strong>Status:</strong>
+                        {% if computer.status == 'working' %}
+                            Funktionsfähig
+                        {% elif computer.status == 'broken' %}
+                            <strong>Defekt</strong>
+                        {% else %}
+                            -
+                        {% endif %}<br>
+
+                            <strong>Garantiedauer:</strong>
+                        {% if computer.warranty_period %}
+                            {{ computer.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                            <strong>Einkaufsdatum:</strong> {{ computer.date_of_purchase|default_if_none:'-' }}<br>
+                            <strong>Preis:</strong>
+                        {% if computer.price %}
+                            {{ computer.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                            <strong>Marke:</strong> {{ computer.brand|default_if_none:'-'}}<br>
+                            <strong>Seriennummer: </strong> {{ computer.serialnumber|default_if_none:'-'}}<br>
+
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Keine Computer vorhanden.</p>
+            {% endif %}
+        </div>
+        <div class="whatever_else_you_need">
+            <h1>Bildschirm</h1>
+                {% if screen_list %}
+                    {% for screen in screen_list %}
+                        <div class="list-group">
+                            <a class="list-group-itemlist-group-item-action active">Bildschirm {{ screen.description }}</a>
+                            <a class="list-group-item list-group-item-action"><strong>Bildschirm Format:</strong>
+                                {{ screen.screen_format }}<br>
+                                <strong>Status:</strong>
+                            {% if screen.status == 'working' %}
+                                Funktionsfähig
+                            {% elif screen.status == 'broken' %}
+                                <strong>Defekt</strong>
+                            {% else %}
+                                -
+                            {% endif %}<br>
+
+                                <strong>Garantiedauer:</strong>
+                            {% if screen.warranty_period %}
+                                {{ screen.warranty_period }} Jahre
+                            {% else %}
+                                -
+                            {% endif %}
+                            <br>
+                                <strong>Einkaufsdatum:</strong> {{ screen.date_of_purchase|default_if_none:'-' }}<br>
+                                <strong>Preis:</strong>
+                            {% if screen.price %}
+                                {{ screen.price}}€
+                            {% else %}
+                                keine Angabe
+                            {% endif %}
+                            <br>
+                                <strong>Marke:</strong> {{ screen.brand|default_if_none:'-'}}<br>
+                                <strong>Seriennummer: </strong> {{ screen.serialnumber|default_if_none:'-'}}<br>
+
+                            </a>
+                        </div>
+                    {% endfor %}
+
+                {% else %}
+                    <p>Keine Bildschirme vorhanden.</p>
+                {% endif %}
+        </div>
+        <div class="whatever_else_you_need">
+            <h1>SmartBoard</h1>
+                {% if smartboard_list %}
+                    {% for smartboardin in smartboard_list %}
+                        <div class="list-group">
+                            <a class="list-group-itemlist-group-item-action active">smartboard{{ smartboard.description }}
+                            <a class="list-group-item list-group-item-action">
+                                <strong>Status:</strong>
+                            {% if smartboard.status == 'working' %}
+                                Funktionsfähig
+                            {% elif smartboard.status == 'broken' %}
+                                <strong>Defekt</strong>
+                            {% else %}
+                                -
+                            {% endif %}<br>
+
+                                <strong>Garantiedauer:</strong>
+                            {% if smartboard.warranty_period %}
+                                {{ smartboard.warranty_period }} Jahre
+                            {% else %}
+                                -
+                            {% endif %}
+                            <br>
+                                <strong>Einkaufsdatum:</strong> {{ smartboard.date_of_purchase|default_if_none:'-' }}<br>
+                                <strong>Preis:</strong>
+                            {% if smartboard.price %}
+                                {{ smartboard.price}}€
+                            {% else %}
+                                keine Angabe
+                            {% endif %}
+                            <br>
+                                <strong>Marke:</strong> {{ smartboard.brand|default_if_none:'-'}}<br>
+                                <strong>Seriennummer: </strong> {{ smartboard.serialnumber|default_if_none:'-'}}<br>
+
+                            </a>
+
+                    {% endfor %}
+
+                    </div>
+                {% else %}
+                    <p>Keine SmartBoard vorhanden.</p>
+                {% endif %}
+        </div>
+        <div class="whatever_else_you_need">
+            <h1>Leinwand</h1>
+            {% if canvas_list %}
+                {% for canvas in canvas_list %}
+                    <div class="list-group">
+                        <a class="list-group-itemlist-group-item-action active">Leinwand {{ canvas.description }}</a>
+                        <a class="list-group-item list-group-item-action"><strong>Leinwand Format:</strong>
+                            {{ canvas.canvas_format }}
+                            <strong>Status:</strong>
+                        {% if canvas.status == 'working' %}
+                            Funktionsfähig
+                        {% elif canvas.status == 'broken' %}
+                            <strong>Defekt</strong>
+                        {% else %}
+                            -
+                        {% endif %}<br>
+
+                            <strong>Garantiedauer:</strong>
+                        {% if canvas.warranty_period %}
+                            {{ canvas.warranty_period }} Jahre
+                        {% else %}
+                            -
+                        {% endif %}
+                        <br>
+                            <strong>Einkaufsdatum:</strong> {{ canvas.date_of_purchase|default_if_none:'-' }}<br>
+                            <strong>Preis:</strong>
+                        {% if canvas.price %}
+                            {{ canvas.price}}€
+                        {% else %}
+                            keine Angabe
+                        {% endif %}
+                        <br>
+                            <strong>Marke:</strong> {{ canvas.brand|default_if_none:'-'}}<br>
+                           <strong>Seriennummer: </strong> {{ canvas.serialnumber|default_if_none:'-'}}<br>
+
+                        </a>
+                    </div>
+                {% endfor %}
+
+            </div>
+            {% else %}
+                <p>Keine Leinwande vorhanden.</p>
+            {% endif %}
+        </div>
+        <div class="whatever_else_you_need">
+            <h1>Audioanlage</h1>
+                {% if speakerset_list %}
+                    {% for speakerset in speakerset_list %}
+                        <div class="list-group">
+                            <a class="list-group-itemlist-group-item-action active">speakerset {{ speakerset.description }}</a>
+                            <a class="list-group-item list-group-item-action"><strong>Anzahl der Lautsprecher:</strong>
+                                {{ speakerset.quantity }}
+                                <strong>Status:</strong>
+                            {% if speakerset.status == 'working' %}
+                                Funktionsfähig
+                            {% elif speakerset.status == 'broken' %}
+                                <strong>Defekt</strong>
+                            {% else %}
+                                -
+                            {% endif %}<br>
+
+                                <strong>Garantiedauer:</strong>
+                            {% if speakerset.warranty_period %}
+                                {{ speakerset.warranty_period }} Jahre
+                            {% else %}
+                                -
+                            {% endif %}
+                            <br>
+                                <strong>Einkaufsdatum:</strong> {{ speakerset.date_of_purchase|default_if_none:'-' }}<br>
+                                <strong>Preis:</strong>
+                            {% if speakerset.price %}
+                                {{ speakerset.price}}€
+                            {% else %}
+                                keine Angabe
+                            {% endif %}
+                            <br>
+                                <strong>Marke:</strong> {{ speakerset.brand|default_if_none:'-'}}<br>
+                                <strong>Seriennummer: </strong> {{ speakerset.serialnumber|default_if_none:'-'}}<br>
+
+                            </a>
+
+                    {% endfor %}
+
+                        </div>
+                {% else %}
+                    <p>Keine Audioanlagen vorhanden.</p>
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}
