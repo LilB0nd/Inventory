@@ -37,12 +37,12 @@ class BeamerView(LoginRequiredMixin, generic.ListView):
             return Beamer.objects.order_by('description')
 
 
-class RoomDetailView(generic.DetailView):
+class RoomDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = 'inventory_managementsentials/room_detail.html'
     model = Room
 
 
-class DeviceView(generic.ListView):
+class DeviceView(LoginRequiredMixin, generic.ListView):
     template_name = 'inventory_managementsentials/all/all_device.html'
 
     def get_queryset(self):
@@ -109,7 +109,7 @@ class SmartBoardView(LoginRequiredMixin, generic.ListView):
             return SmartBoard.objects.order_by('description')
 
 
-class CanvasView(generic.ListView):
+class CanvasView(LoginRequiredMixin, generic.ListView):
     template_name = 'inventory_managementsentials/all/all_canvas.html'
     context_object_name = 'canvas_list'
 
@@ -121,7 +121,7 @@ class CanvasView(generic.ListView):
             return Canvas.objects.order_by('description')
 
 
-class SpeakerSetView(generic.ListView):
+class SpeakerSetView(LoginRequiredMixin, generic.ListView):
     template_name = 'inventory_managementsentials/all/all_speakerset.html'
     context_object_name = 'speakerset_list'
 
@@ -132,7 +132,7 @@ class SpeakerSetView(generic.ListView):
         else:
             return SpeakerSet.objects.order_by('description')
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
@@ -142,12 +142,12 @@ def room_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_room.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def room_delete_view(request, pk):
     get_object_or_404(Room, description=pk).delete()
     return redirect('inventory_managementsentials:RoomView')
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def room_update_view(request, pk):
     instance = get_object_or_404(Room, description=pk)
     form = RoomForm(request.POST or None, instance=instance)
@@ -158,7 +158,7 @@ def room_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_room.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def beamer_create_view(request):
     form = BeamerForm(request.POST or None)
     if form.is_valid():
@@ -168,7 +168,7 @@ def beamer_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_beamer.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def beamer_update_view(request, pk):
     instance = get_object_or_404(Beamer, description=pk)
     form = BeamerForm(request.POST or None, instance=instance)
@@ -179,7 +179,7 @@ def beamer_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_beamer.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def computer_create_view(request):
     form = ComputerForm(request.POST or None)
     if form.is_valid():
@@ -189,7 +189,7 @@ def computer_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_computer.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def computer_update_view(request, pk):
     instance = get_object_or_404(Computer, description=pk)
     form = ComputerForm(request.POST or None, instance=instance)
@@ -200,7 +200,7 @@ def computer_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_computer.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def screen_create_view(request):
     form = ScreenForm(request.POST or None)
     if form.is_valid():
@@ -210,7 +210,7 @@ def screen_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_screen.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def screen_update_view(request, pk):
     instance = get_object_or_404(Screen, description=pk)
     form = ScreenForm(request.POST or None, instance=instance)
@@ -221,7 +221,7 @@ def screen_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_screen.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def smartboard_create_view(request):
     form = SmartBoardForm(request.POST or None)
     if form.is_valid():
@@ -231,7 +231,7 @@ def smartboard_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_smartboard.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def smartboard_update_view(request, pk):
     instance = get_object_or_404(SmartBoard, description=pk)
     form = SmartBoardForm(request.POST or None, instance=instance)
@@ -242,7 +242,7 @@ def smartboard_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_smartboard.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def canvas_create_view(request):
     form = CanvasForm(request.POST or None)
     if form.is_valid():
@@ -252,7 +252,7 @@ def canvas_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_canvas.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def canvas_update_view(request, pk):
     instance = get_object_or_404(Canvas, description=pk)
     form = CanvasForm(request.POST or None, instance=instance)
@@ -263,7 +263,7 @@ def canvas_update_view(request, pk):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_canvas.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def speakerset_create_view(request):
     form = SpeakerSetForm(request.POST or None)
     if form.is_valid():
@@ -273,7 +273,7 @@ def speakerset_create_view(request):
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_speakerset.html', context)
 
-
+@login_required(login_url='inventory_managementsentials:login')
 def speakerset_update_view(request, pk):
     instance = get_object_or_404(SpeakerSet, description=pk)
     form = SpeakerSetForm(request.POST or None, instance=instance)
@@ -286,31 +286,37 @@ def speakerset_update_view(request, pk):
 
 
 def register(request, ):
-    register_form = CreateUserForm()
-    if request.method == "POST":
-        register_form = CreateUserForm(request.POST)
-        if register_form.is_valid():
-            register_form.save()
-            return redirect('inventory_managementsentials:login')
+    if request.user.is_authenticated:
+        return redirect('inventory_managementsentials:RoomView')
+    else:
+        register_form = CreateUserForm()
+        if request.method == "POST":
+            register_form = CreateUserForm(request.POST)
+            if register_form.is_valid():
+                register_form.save()
+                return redirect('inventory_managementsentials:login')
 
-    return render(request, 'inventory_managementsentials/register.html', {'register_form': register_form})
+        return render(request, 'inventory_managementsentials/register.html', {'register_form': register_form})
 
 
 
 def loginPage(request, ):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    if request.user.is_authenticated:
+        return redirect('inventory_managementsentials:RoomView')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('inventory_managementsentials:RoomView')
-        else:
-            messages.info(request, 'Benutzername oder Passwort ist Falsch')
+            if user is not None:
+                login(request, user)
+                return redirect('inventory_managementsentials:RoomView')
+            else:
+                messages.info(request, 'Benutzername oder Passwort ist Falsch')
 
-    return render(request, 'inventory_managementsentials/login.html', {'login':login})
+        return render(request, 'inventory_managementsentials/login.html', {'login':login})
 
 
 
