@@ -6,17 +6,12 @@ from .forms import RoomForm, BeamerForm, ComputerForm, ScreenForm, SmartBoardFor
 from .models import Room, Beamer, Computer, Screen, SmartBoard, Canvas, SpeakerSet
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-
-class IndexView(generic.ListView):
-    template_name = 'inventory_managementsentials/index.html'
-
-    def get_queryset(self):
-        return None
-
-
-class RoomView(generic.ListView):
+class RoomView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_rooms.html'
     context_object_name = "room_list"
 
@@ -28,52 +23,22 @@ class RoomView(generic.ListView):
             return Room.objects.order_by('description')
 
 
-class RoomDetailView(generic.DetailView):
-    model = Room
-    template_name = 'inventory_managementsentials/room_detail.html'
-
-
-class DeviceView(generic.ListView):
-    template_name = 'inventory_managementsentials/all/all_device.html'
-
-    def get_queryset(self):
-        return None
-
-    def get_context_data(self, *, object_list=None,  **kwargs, ):
-        context = super().get_context_data(**kwargs)
-        context['beamer_list'] = Beamer.objects.order_by('description')
-        context['computer_list'] = Computer.objects.order_by('description')
-        context['screen_list'] = Screen.objects.order_by('description')
-        context['smartboard_list'] = SmartBoard.objects.order_by('description')
-        context['canvas_list'] = Canvas.objects.order_by('description')
-        context['speakerset_list'] = SpeakerSet.objects.order_by('description')
-
-        filter_description = self.request.GET.get('description', None)
-        if filter_description is not None:
-            context['beamer_list'] = Beamer.objects.filter(description__icontains=filter_description)
-            context['computer_list'] = Computer.objects.filter(description__icontains=filter_description)
-            context['screen_list'] = Screen.objects.filter(description__icontains=filter_description)
-            context['smartboard_list'] = SmartBoard.objects.filter(description__icontains=filter_description)
-            context['canvas_list'] = Canvas.objects.filter(description__icontains=filter_description)
-            context['speakerset_list'] = SpeakerSet.objects.filter(description__icontains=filter_description)
-            return context
-
-        return context
-
-
-class BeamerView(generic.ListView):
+class BeamerView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_beamers.html'
     context_object_name = 'beamer_list'
 
     def get_queryset(self):
         filter_description = self.request.GET.get('beamer_description', None)
         if filter_description is not None:
+            print(Beamer.objects.filter(description__icontains=filter_description))
             return Beamer.objects.filter(description__icontains=filter_description)
         else:
             return Beamer.objects.order_by('description')
 
 
-class ComputerView(generic.ListView):
+class ComputerView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_computer.html'
     context_object_name = 'computer_list'
 
@@ -85,7 +50,8 @@ class ComputerView(generic.ListView):
             return Computer.objects.order_by('description')
 
 
-class ScreenView(generic.ListView):
+class ScreenView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_screens.html'
     context_object_name = 'screen_list'
 
@@ -97,7 +63,8 @@ class ScreenView(generic.ListView):
             return Screen.objects.order_by('description')
 
 
-class SmartBoardView(generic.ListView):
+class SmartBoardView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_smartboard.html'
     context_object_name = 'smartboard_list'
 
@@ -109,7 +76,8 @@ class SmartBoardView(generic.ListView):
             return SmartBoard.objects.order_by('description')
 
 
-class CanvasView(generic.ListView):
+class CanvasView(LoginRequiredMixin,generic.ListView):
+    login_url = 'inventory_managementsentials:login'
     template_name = 'inventory_managementsentials/all/all_canvas.html'
     context_object_name = 'canvas_list'
 
@@ -121,8 +89,9 @@ class CanvasView(generic.ListView):
             return Canvas.objects.order_by('description')
 
 
-class SpeakerSetView(generic.ListView):
-    template_name = 'inventory_managementsentials/all/all_speakerset.html'
+class SpeakerSetView(LoginRequiredMixin, generic.ListView):
+    login_url = 'inventory_managementsentials:login'
+    template_name = 'inventory_managementsentials/all/all_smartboard.html'
     context_object_name = 'smartboard_list'
 
     def get_queryset(self):
@@ -133,185 +102,190 @@ class SpeakerSetView(generic.ListView):
             return SpeakerSet.objects.order_by('description')
 
 
+class RoomDetailView(LoginRequiredMixin, generic.DetailView):
+    login_url = 'inventory_managementsentials:login'
+    model = Room
+    template_name = 'inventory_managementsentials/room_detail.html'
+
+@login_required(login_url='inventinventory_managementsentials:login')
 def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomDetailRoom')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_room.html', context)
 
-
-def room_delete_view(request, pk):
-    get_object_or_404(Room, description=pk).delete()
-    return redirect('inventory_managementsentials:RoomView')
-
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def room_update_view(request, pk):
     instance = get_object_or_404(Room, description=pk)
     form = RoomForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomDetailRoom', pk)
+        return redirect('inventory_managementsentials:RoomView', pk)
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_room.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def beamer_create_view(request):
     form = BeamerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:BeamerView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_beamer.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def beamer_update_view(request, pk):
     instance = get_object_or_404(Beamer, description=pk)
     form = BeamerForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:BeamerView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_beamer.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def computer_create_view(request):
     form = ComputerForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:ComputerView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_computer.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def computer_update_view(request, pk):
     instance = get_object_or_404(Computer, description=pk)
     form = ComputerForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:ComputerView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_computer.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def screen_create_view(request):
     form = ScreenForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:ScreenView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_screen.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def screen_update_view(request, pk):
     instance = get_object_or_404(Screen, description=pk)
     form = ScreenForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:ScreenView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_screen.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def smartboard_create_view(request):
     form = SmartBoardForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:SmartBoardView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_smartboard.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def smartboard_update_view(request, pk):
     instance = get_object_or_404(SmartBoard, description=pk)
     form = SmartBoardForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:SmartBoardView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_smartboard.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def canvas_create_view(request):
     form = CanvasForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:CanvasView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_canvas.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def canvas_update_view(request, pk):
     instance = get_object_or_404(Canvas, description=pk)
     form = CanvasForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:CanvasView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_canvas.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def speakerset_create_view(request):
     form = SpeakerSetForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:SpeakerSetView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_speakerset.html', context)
 
-
+@login_required(login_url='inventinventory_managementsentials:login')
 def speakerset_update_view(request, pk):
     instance = get_object_or_404(SpeakerSet, description=pk)
     form = SpeakerSetForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:SpeakerSetView')
+        return redirect('inventory_managementsentials:RoomView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_canvas.html', context)
 
 
 def register(request, ):
-    register_form = CreateUserForm()
-    if request.method == "POST":
-        register_form = CreateUserForm(request.POST)
-        if register_form.is_valid():
-            register_form.save()
-            return redirect('inventory_managementsentials:login')
+    if request.user.is_authenticated:
+        return redirect('inventory_managementsentials:RoomView')
+    else:
+        register_form = CreateUserForm()
+        if request.method == "POST":
+            register_form = CreateUserForm(request.POST)
+            if register_form.is_valid():
+                register_form.save()
+                return redirect('inventory_managementsentials:login')
 
-    return render(request, 'inventory_managementsentials/register.html', {'register_form': register_form})
-
+        return render(request, 'inventory_managementsentials/register.html', {'register_form': register_form})
 
 
 def loginPage(request, ):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    if request.user.is_authenticated:
+        return redirect('inventory_managementsentials:RoomView')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('inventory_managementsentials:RoomView')
-        else:
-            messages.info(request, 'Benutzername oder Passwort ist Falsch')
+            if user is not None:
+                login(request, user)
+                return redirect('inventory_managementsentials:RoomView')
+            else:
+                messages.info(request, 'Benutzername oder Passwort ist Falsch')
 
-    return render(request, 'inventory_managementsentials/login.html', {'login':login})
-
+        return render(request, 'inventory_managementsentials/login.html', {'login':login})
 
 
 def logoutUser(request, ):
