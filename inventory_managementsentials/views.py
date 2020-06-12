@@ -123,10 +123,10 @@ class CanvasView(generic.ListView):
 
 class SpeakerSetView(generic.ListView):
     template_name = 'inventory_managementsentials/all/all_speakerset.html'
-    context_object_name = 'smartboard_list'
+    context_object_name = 'speakerset_list'
 
     def get_queryset(self):
-        filter_description = self.request.GET.get('skeaperset_description', None)
+        filter_description = self.request.GET.get('speakerset_description', None)
         if filter_description is not None:
             return SpeakerSet.objects.filter(description__icontains=filter_description)
         else:
@@ -137,7 +137,7 @@ def room_create_view(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomDetailRoom')
+        return redirect('inventory_managementsentials:RoomDetailView')
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/add/add_room.html', context)
@@ -153,7 +153,7 @@ def room_update_view(request, pk):
     form = RoomForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
-        return redirect('inventory_managementsentials:RoomDetailRoom', pk)
+        return redirect('inventory_managementsentials:RoomDetailView', pk)
 
     context = {'form': form}
     return render(request, 'inventory_managementsentials/update/update_room.html', context)
