@@ -4,7 +4,7 @@
 
     <div class="container">
         <header>
-            <div class="editor-indent" style="margin-left: 20px; padding: 0 0 0 40px; margin-right: 50px">
+            <div class="editor-indent">
                 <div class="inner">
                     <h1>Computer Übersicht </h1>
                 </div>
@@ -19,7 +19,6 @@
             {% if computer_list %}
                 {% for computer in computer_list %}
                     <div class="list-group">
-
                         <h4 class="list-group-itemlist-group-item-action active">Computer {{ computer.description }}</h4>
                          <a class="list-group-item list-group-item-action">   <strong>Status:</strong>
                         {% if computer.status == 'working' %}

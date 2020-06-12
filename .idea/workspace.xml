@@ -5854,10 +5854,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="189" y="159" key="#manage/0.40.1920.1040/1920.0.1200.660@0.40.1920.1040" timestamp="1591890063356" />
-    <state x="585" y="42" key="CommitChangelistDialog2" timestamp="1591981954942">
+    <state x="585" y="42" key="CommitChangelistDialog2" timestamp="1591986570662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="42" key="CommitChangelistDialog2/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591981954942" />
+    <state x="585" y="42" key="CommitChangelistDialog2/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591986570662" />
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587583056982" />
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040/-1920.84.1920.1040@0.0.1920.1040" timestamp="1591876074766" />
     <state x="585" y="120" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1591804863305" />
@@ -5923,9 +5923,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591711841760" />
-    <state x="552" y="296" key="Vcs.Push.Dialog.v2" timestamp="1591977899754">
-      <screen x="0" y="40" width="1920" height="1040" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1591986586151">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.109.1920.1040@0.0.1920.1040" timestamp="1591986586151" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.78.1920.1040@0.0.1920.1040" timestamp="1587583060309" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.84.1920.1040@0.0.1920.1040" timestamp="1591876078062" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1591804868220" />
